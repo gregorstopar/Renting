@@ -7,626 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --steel-900:#15181b;
-    --steel-800:#20242a;
-    --steel-700:#343a41;
-    --concrete-500:#8a8f94;
-    --paper-100:#ffffff;
-    --amber-500:#e8a93b;
-    --amber-600:#c98f27;
-    --signal-red:#c7482f;
-    --signal-green:#5a8f5f;
-    --font-display: 'Oswald', sans-serif;
-    --font-body: 'Inter', sans-serif;
-    --font-mono: 'IBM Plex Mono', monospace;
-  }
-
-  *{margin:0;padding:0;box-sizing:border-box;}
-
-  html{scroll-behavior:smooth;}
-
-  body{
-    background:var(--paper-100);
-    color:var(--steel-900);
-    font-family:var(--font-body);
-    line-height:1.5;
-    -webkit-font-smoothing:antialiased;
-  }
-
-  img,svg{display:block;max-width:100%;}
-
-  a{color:inherit;text-decoration:none;}
-
-  .wrap{
-    max-width:1180px;
-    margin:0 auto;
-    padding:0 32px;
-  }
-
-  /* ---------- Hero photo backdrop ---------- */
-  .plate-bg{
-    background-color:var(--steel-900);
-    background-image:
-      linear-gradient(100deg, rgba(21,24,27,0.95) 0%, rgba(21,24,27,0.86) 38%, rgba(21,24,27,0.62) 75%, rgba(21,24,27,0.48) 100%),
-      url('renting.jpg');
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
-  }
-
-  /* ---------- Topbar ---------- */
-  .topbar{
-    background:var(--steel-800);
-    color:var(--concrete-500);
-    font-family:var(--font-mono);
-    font-size:12.5px;
-  }
-  .topbar-inner{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:9px 32px;
-    gap:16px;
-    flex-wrap:wrap;
-  }
-  .topbar-inner a:hover{color:var(--amber-500);}
-
-  /* ---------- Nav ---------- */
-  header{
-    position:sticky;
-    top:0;
-    z-index:50;
-    background:var(--steel-900);
-    border-bottom:1px solid rgba(255,255,255,0.08);
-  }
-  nav{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:20px 32px;
-    max-width:1180px;
-    margin:0 auto;
-  }
-  .logo{
-    font-family:var(--font-display);
-    font-size:26px;
-    color:var(--paper-100);
-    display:flex;
-    align-items:center;
-    gap:14px;
-  }
-  .logo-text-thin{
-    font-weight:400;
-    font-variant:small-caps;
-    letter-spacing:0.05em;
-    margin-right:3px;
-  }
-  .logo-text-bold{
-    font-weight:800;
-    letter-spacing:0.015em;
-  }
-  .logo-mark{
-    width:44px;height:27px;
-    flex-shrink:0;
-    overflow:visible;
-  }
-  .nav-links{
-    display:flex;
-    gap:36px;
-    list-style:none;
-  }
-  .nav-links a{
-    color:var(--concrete-500);
-    font-size:14px;
-    font-weight:500;
-    letter-spacing:0.02em;
-    transition:color 0.2s ease;
-  }
-  .nav-links a:hover{color:var(--paper-100);}
-  .nav-cta{
-    background:var(--amber-500);
-    color:var(--steel-900);
-    font-family:var(--font-body);
-    font-weight:600;
-    font-size:14px;
-    padding:11px 22px;
-    border-radius:2px;
-    transition:background 0.2s ease;
-    white-space:nowrap;
-  }
-  .nav-cta:hover{background:var(--amber-600);}
-  .nav-toggle{display:none;}
-  .nav-right{
-    display:flex;
-    align-items:center;
-    gap:18px;
-  }
-  .lang-switch{
-    display:flex;
-    border:1px solid rgba(255,255,255,0.18);
-    border-radius:2px;
-    overflow:hidden;
-  }
-  .lang-btn{
-    font-family:var(--font-mono);
-    font-size:12px;
-    font-weight:500;
-    letter-spacing:0.04em;
-    color:var(--concrete-500);
-    background:transparent;
-    border:0;
-    cursor:pointer;
-    padding:7px 11px;
-    transition:background 0.2s ease, color 0.2s ease;
-  }
-  .lang-btn:hover{color:var(--paper-100);}
-  .lang-btn.active{background:var(--amber-500);color:var(--steel-900);}
-
-  /* ---------- Hero ---------- */
-  .hero{
-    color:var(--paper-100);
-    padding:110px 0 96px;
-    position:relative;
-    overflow:hidden;
-  }
-  .hero-eyebrow{
-    font-family:var(--font-mono);
-    font-size:13px;
-    color:var(--amber-500);
-    letter-spacing:0.12em;
-    text-transform:uppercase;
-    margin-bottom:22px;
-    display:flex;
-    align-items:center;
-    gap:10px;
-  }
-  .hero-eyebrow::before{
-    content:'';
-    width:8px;height:8px;
-    background:var(--signal-green);
-    border-radius:50%;
-    box-shadow:0 0 0 3px rgba(90,143,95,0.25);
-  }
-  .hero h1{
-    font-family:var(--font-display);
-    font-weight:700;
-    font-size:clamp(40px, 6vw, 74px);
-    line-height:1.02;
-    letter-spacing:-0.01em;
-    max-width:820px;
-    text-transform:uppercase;
-  }
-  .hero h1 span{color:var(--amber-500);}
-  .hero p{
-    margin-top:26px;
-    max-width:520px;
-    font-size:18px;
-    color:var(--concrete-500);
-  }
-  .hero-actions{
-    margin-top:40px;
-    display:flex;
-    gap:16px;
-    flex-wrap:wrap;
-  }
-  .btn-primary{
-    background:var(--amber-500);
-    color:var(--steel-900);
-    font-weight:600;
-    font-size:15px;
-    padding:15px 30px;
-    border-radius:2px;
-    transition:background 0.2s ease, transform 0.2s ease;
-  }
-  .btn-primary:hover{background:var(--amber-600);transform:translateY(-1px);}
-  .btn-secondary{
-    border:1px solid rgba(255,255,255,0.25);
-    color:var(--paper-100);
-    font-weight:600;
-    font-size:15px;
-    padding:15px 30px;
-    border-radius:2px;
-    transition:border-color 0.2s ease, background 0.2s ease;
-  }
-  .btn-secondary:hover{border-color:var(--amber-500);background:rgba(255,255,255,0.04);}
-
-  /* ---------- Stat strip ---------- */
-  .stat-strip{
-    border-top:1px solid rgba(255,255,255,0.08);
-    margin-top:80px;
-    padding-top:36px;
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:24px;
-  }
-  .stat-num{
-    font-family:var(--font-mono);
-    font-size:30px;
-    font-weight:500;
-    color:var(--amber-500);
-  }
-  .stat-label{
-    font-size:13px;
-    color:var(--concrete-500);
-    margin-top:6px;
-    letter-spacing:0.02em;
-  }
-
-  /* ---------- Section shell ---------- */
-  section{padding:96px 0;}
-  .section-eyebrow{
-    font-family:var(--font-mono);
-    font-size:13px;
-    color:var(--amber-600);
-    letter-spacing:0.1em;
-    text-transform:uppercase;
-    margin-bottom:14px;
-  }
-  .section-title{
-    font-family:var(--font-display);
-    font-weight:600;
-    font-size:clamp(28px,3.6vw,42px);
-    text-transform:uppercase;
-    letter-spacing:-0.005em;
-    max-width:640px;
-  }
-  .section-sub{
-    margin-top:16px;
-    max-width:560px;
-    color:var(--steel-700);
-    font-size:16px;
-  }
-
-  /* ---------- Equipment grid ---------- */
-  .equip-head{
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-end;
-    flex-wrap:wrap;
-    gap:24px;
-    margin-bottom:52px;
-  }
-  .equip-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:1px;
-    background:rgba(0,0,0,0.08);
-    border:1px solid rgba(0,0,0,0.08);
-  }
-  .equip-card{
-    background:var(--paper-100);
-    padding:36px 30px;
-    position:relative;
-    transition:background 0.2s ease;
-  }
-  .equip-card:hover{background:#f4f4f4;}
-  .equip-index{
-    font-family:var(--font-mono);
-    font-size:12px;
-    color:var(--concrete-500);
-  }
-  .equip-card h3{
-    font-family:var(--font-display);
-    font-size:22px;
-    font-weight:600;
-    text-transform:uppercase;
-    margin-top:18px;
-  }
-  .equip-card p{
-    margin-top:10px;
-    font-size:14.5px;
-    color:var(--steel-700);
-  }
-  .status-row{
-    margin-top:22px;
-    display:flex;
-    align-items:center;
-    gap:8px;
-    font-family:var(--font-mono);
-    font-size:12.5px;
-    color:var(--steel-700);
-  }
-  .status-dot{
-    width:8px;height:8px;
-    border-radius:50%;
-    flex-shrink:0;
-  }
-  .status-dot.available{background:var(--signal-green);box-shadow:0 0 0 3px rgba(90,143,95,0.18);}
-  .status-dot.limited{background:var(--amber-500);box-shadow:0 0 0 3px rgba(232,169,59,0.18);}
-  .status-dot.booked{background:var(--signal-red);box-shadow:0 0 0 3px rgba(199,72,47,0.18);}
-
-  /* ---------- Data teaser banner ---------- */
-  .data-teaser{
-    background:var(--steel-800);
-    color:var(--paper-100);
-    border-radius:2px;
-    padding:40px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:32px;
-    flex-wrap:wrap;
-    margin-top:56px;
-  }
-  .data-teaser-text{max-width:520px;}
-  .data-teaser h4{
-    font-family:var(--font-display);
-    font-size:20px;
-    text-transform:uppercase;
-    letter-spacing:0.02em;
-  }
-  .data-teaser p{
-    margin-top:8px;
-    color:var(--concrete-500);
-    font-size:14.5px;
-  }
-  .data-teaser-tag{
-    font-family:var(--font-mono);
-    font-size:12px;
-    color:var(--amber-500);
-    border:1px solid rgba(232,169,59,0.4);
-    padding:8px 14px;
-    border-radius:2px;
-    white-space:nowrap;
-  }
-
-  /* ---------- How it works ---------- */
-  .steps{
-    margin-top:56px;
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:0;
-  }
-  .step{
-    padding:28px 26px 0;
-    border-top:2px solid var(--steel-900);
-    position:relative;
-  }
-  .step-num{
-    font-family:var(--font-mono);
-    font-size:13px;
-    color:var(--amber-600);
-  }
-  .step h4{
-    font-family:var(--font-display);
-    font-size:18px;
-    text-transform:uppercase;
-    margin-top:14px;
-  }
-  .step p{
-    margin-top:10px;
-    font-size:14.5px;
-    color:var(--steel-700);
-  }
-
-  /* ---------- Trust bar ---------- */
-  .trust{
-    background:var(--steel-900);
-    color:var(--paper-100);
-  }
-  .trust-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:40px;
-  }
-  .trust-card{
-    border-left:2px solid var(--amber-500);
-    padding-left:22px;
-  }
-  .trust-quote{
-    font-size:16px;
-    color:var(--paper-100);
-    line-height:1.6;
-  }
-  .trust-name{
-    margin-top:16px;
-    font-family:var(--font-mono);
-    font-size:12.5px;
-    color:var(--concrete-500);
-  }
-
-  /* ---------- CTA ---------- */
-  .cta{
-    text-align:center;
-    padding:110px 0;
-  }
-  .cta h2{
-    font-family:var(--font-display);
-    font-size:clamp(32px,5vw,52px);
-    text-transform:uppercase;
-    max-width:680px;
-    margin:0 auto;
-    line-height:1.08;
-  }
-  .cta h2 span{color:var(--amber-500);}
-  .cta p{
-    margin-top:18px;
-    color:var(--steel-700);
-    font-size:16px;
-  }
-  .cta-actions{
-    margin-top:34px;
-    display:flex;
-    justify-content:center;
-    gap:16px;
-    flex-wrap:wrap;
-  }
-  .btn-dark{
-    background:var(--steel-900);
-    color:var(--paper-100);
-    font-weight:600;
-    font-size:15px;
-    padding:15px 30px;
-    border-radius:2px;
-    transition:background 0.2s ease;
-  }
-  .btn-dark:hover{background:var(--steel-700);}
-  .btn-outline-dark{
-    border:1px solid var(--steel-900);
-    color:var(--steel-900);
-    font-weight:600;
-    font-size:15px;
-    padding:15px 30px;
-    border-radius:2px;
-    transition:background 0.2s ease;
-  }
-  .btn-outline-dark:hover{background:rgba(0,0,0,0.05);}
-
-  /* ---------- Locations ---------- */
-  .quick-contact{
-    margin-top:40px;
-    background:var(--steel-900);
-    color:var(--paper-100);
-    border-left:3px solid var(--amber-500);
-    border-radius:2px;
-    padding:22px 28px;
-    display:flex;
-    gap:40px;
-    flex-wrap:wrap;
-    align-items:center;
-  }
-  .quick-contact-item{
-    display:flex;
-    flex-direction:column;
-    gap:5px;
-  }
-  .quick-contact-label{
-    font-family:var(--font-mono);
-    font-size:11px;
-    letter-spacing:0.08em;
-    text-transform:uppercase;
-    color:var(--amber-500);
-  }
-  .quick-contact-value{
-    font-size:15px;
-    font-weight:600;
-  }
-  .quick-contact-value a:hover{color:var(--amber-500);}
-
-  .locations-grid{
-    margin-top:40px;
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:1px;
-    background:rgba(0,0,0,0.08);
-    border:1px solid rgba(0,0,0,0.08);
-  }
-  .location-card{
-    background:var(--paper-100);
-    padding:30px 26px;
-  }
-  .location-card h3{
-    font-family:var(--font-display);
-    font-size:17px;
-    font-weight:600;
-    letter-spacing:0.01em;
-    text-transform:uppercase;
-    color:var(--steel-900);
-    margin-bottom:18px;
-  }
-  .location-detail{
-    margin-top:12px;
-    font-size:14px;
-    color:var(--steel-700);
-    line-height:1.5;
-  }
-  .location-detail:first-of-type{margin-top:0;}
-  .location-label{
-    display:block;
-    font-family:var(--font-mono);
-    font-size:11px;
-    letter-spacing:0.05em;
-    text-transform:uppercase;
-    color:var(--amber-600);
-    margin-bottom:3px;
-  }
-  .location-detail a:hover{color:var(--amber-600);}
-  .location-map{
-    margin-top:18px;
-    aspect-ratio:4/3;
-    border:1px solid rgba(0,0,0,0.1);
-    filter:grayscale(15%);
-  }
-  .location-map iframe{
-    width:100%;
-    height:100%;
-    border:0;
-    display:block;
-  }
-
-  /* ---------- Footer ---------- */
-  footer{
-    background:var(--steel-900);
-    color:var(--concrete-500);
-    padding:56px 0 32px;
-  }
-  .footer-grid{
-    display:grid;
-    grid-template-columns:1.4fr 1fr 1fr 1fr;
-    gap:32px;
-  }
-  .footer-logo{
-    font-family:var(--font-display);
-    font-weight:700;
-    font-size:18px;
-    color:var(--paper-100);
-    display:flex;
-    align-items:center;
-    gap:8px;
-  }
-  .footer-logo .logo-mark{width:28px;height:16px;}
-  .footer-desc{
-    margin-top:14px;
-    font-size:14px;
-    max-width:260px;
-    line-height:1.6;
-  }
-  .footer-col h5{
-    font-family:var(--font-mono);
-    font-size:12px;
-    letter-spacing:0.08em;
-    text-transform:uppercase;
-    color:var(--paper-100);
-    margin-bottom:16px;
-  }
-  .footer-col ul{list-style:none;}
-  .footer-col li{margin-bottom:10px;font-size:14px;}
-  .footer-col a:hover{color:var(--paper-100);}
-  .footer-bottom{
-    margin-top:56px;
-    padding-top:24px;
-    border-top:1px solid rgba(255,255,255,0.08);
-    display:flex;
-    justify-content:space-between;
-    font-size:13px;
-    flex-wrap:wrap;
-    gap:12px;
-  }
-
-  /* ---------- Responsive ---------- */
-  @media (max-width:900px){
-    .nav-links{display:none;}
-    .stat-strip{grid-template-columns:repeat(2,1fr);row-gap:28px;}
-    .equip-grid{grid-template-columns:1fr;}
-    .steps{grid-template-columns:1fr;row-gap:28px;}
-    .trust-grid{grid-template-columns:1fr;}
-    .footer-grid{grid-template-columns:1fr 1fr;row-gap:32px;}
-    .locations-grid{grid-template-columns:1fr 1fr;}
-  }
-  @media (max-width:560px){
-    .wrap{padding:0 20px;}
-    .footer-grid{grid-template-columns:1fr;}
-    .data-teaser{flex-direction:column;align-items:flex-start;}
-    .locations-grid{grid-template-columns:1fr;}
-    .topbar-inner{padding:9px 20px;justify-content:center;text-align:center;gap:6px 16px;}
-  }
-
-  @media (prefers-reduced-motion: reduce){
-    *{transition:none !important; scroll-behavior:auto !important;}
-  }
-</style>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -656,11 +37,12 @@
 
 <header>
   <nav>
-    <a href="#" class="logo"><svg class="logo-mark" aria-hidden="true"><use href="#renting-mark"></use></svg><span data-i18n-html="logo.brand"><span class="logo-text-thin">Skupina</span> <span class="logo-text-bold">RENTING</span></span></a>
+    <a href="index.html" class="logo"><svg class="logo-mark" aria-hidden="true"><use href="#renting-mark"></use></svg><span data-i18n-html="logo.brand"><span class="logo-text-thin">Skupina</span> <span class="logo-text-bold">RENTING</span></span></a>
     <ul class="nav-links">
       <li><a href="#equipment" data-i18n="nav.equipment">Oprema</a></li>
+      <li><a href="reference.html" data-i18n="nav.references">Reference</a></li>
+      <li><a href="partners.html" data-i18n="nav.partners">Partnerji</a></li>
       <li><a href="#how" data-i18n="nav.how">Kako deluje</a></li>
-      <li><a href="#trust" data-i18n="nav.trust">Zakaj Renting</a></li>
       <li><a href="#locations" data-i18n="nav.locations">Lokacije</a></li>
       <li><a href="#contact" data-i18n="nav.contact">Kontakt</a></li>
     </ul>
@@ -794,6 +176,69 @@
   </div>
 </section>
 
+<section id="references">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="section-eyebrow" data-i18n="ref.eyebrow">Reference</div>
+        <h2 class="section-title" data-i18n="ref.title">Dela, ki govorijo sama zase</h2>
+      </div>
+      <a href="reference.html" class="section-more" data-i18n="ref.more">Vse reference →</a>
+    </div>
+
+    <div class="ref-grid">
+      <a class="ref-card" href="reference.html#ref-1">
+        <div class="ref-photo">
+          <svg class="logo-mark" aria-hidden="true"><use href="#renting-mark"></use></svg>
+          <span class="ref-photo-year">2025</span>
+          <span class="ref-photo-tag" data-i18n="ref.1.place">Luka Koper</span>
+        </div>
+        <div class="ref-body">
+          <div class="ref-subtitle" data-i18n="ref.1.subtitle">Zemeljska dela in kompaktiranje</div>
+          <h3 class="ref-title" data-i18n="ref.1.title">Sanacija skladiščnih površin</h3>
+          <p class="ref-desc" data-i18n="ref.1.desc">Dva meseca najema mini bagrov in valjarjev za obnovo asfaltnih in tlakovanih površin na kontejnerskem terminalu, brez prekinitve pretovora.</p>
+        </div>
+      </a>
+      <a class="ref-card" href="reference.html#ref-2">
+        <div class="ref-photo">
+          <svg class="logo-mark" aria-hidden="true"><use href="#renting-mark"></use></svg>
+          <span class="ref-photo-year">2025</span>
+          <span class="ref-photo-tag" data-i18n="ref.2.place">Ljubljana – Bežigrad</span>
+        </div>
+        <div class="ref-body">
+          <div class="ref-subtitle" data-i18n="ref.2.subtitle">Izkop temeljev in odvoz materiala</div>
+          <h3 class="ref-title" data-i18n="ref.2.title">Gradnja stanovanjskega kompleksa</h3>
+          <p class="ref-desc" data-i18n="ref.2.desc">Najem standardnih bagrov in nakladalnikov za izkop temeljev novogradnje 64 stanovanjskih enot v osrednjem delu mesta.</p>
+        </div>
+      </a>
+      <a class="ref-card" href="reference.html#ref-3">
+        <div class="ref-photo">
+          <svg class="logo-mark" aria-hidden="true"><use href="#renting-mark"></use></svg>
+          <span class="ref-photo-year">2024</span>
+          <span class="ref-photo-tag" data-i18n="ref.3.place">Nova Gorica</span>
+        </div>
+        <div class="ref-body">
+          <div class="ref-subtitle" data-i18n="ref.3.subtitle">Cestogradnja in planiranje</div>
+          <h3 class="ref-title" data-i18n="ref.3.title">Obnova mestnega obvoznika</h3>
+          <p class="ref-desc" data-i18n="ref.3.desc">Dobava dozerjev in grederjev za širitev in planiranje treh kilometrov obvoznice, dokončano pred rokom.</p>
+        </div>
+      </a>
+      <a class="ref-card" href="reference.html#ref-4">
+        <div class="ref-photo">
+          <svg class="logo-mark" aria-hidden="true"><use href="#renting-mark"></use></svg>
+          <span class="ref-photo-year">2025</span>
+          <span class="ref-photo-tag" data-i18n="ref.4.place">Škofja Loka</span>
+        </div>
+        <div class="ref-body">
+          <div class="ref-subtitle" data-i18n="ref.4.subtitle">Nujna intervencija in zavarovanje brežine</div>
+          <h3 class="ref-title" data-i18n="ref.4.title">Sanacija plazu nad naseljem</h3>
+          <p class="ref-desc" data-i18n="ref.4.desc">24-urna dobava bagrov in generatorjev za zavarovanje brežine po zemeljskem plazu, delo je potekalo v izmenah do stabilizacije terena.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
 <section id="trust" class="trust">
   <div class="wrap">
     <div class="section-eyebrow" data-i18n="trust.eyebrow">Zakaj nam izvajalci ostajajo zvesti</div>
@@ -812,6 +257,37 @@
         <p class="trust-quote" data-i18n="trust.3.quote">Njihov vozni park je novejši in bolje vzdrževan, kot je bil naš, ko smo opremo še imeli v lasti.</p>
         <div class="trust-name" data-i18n="trust.3.name">LASTNIK — PODJETJE ZA ZEMELJSKA DELA</div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="partners">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="section-eyebrow" data-i18n="partners.eyebrow">Partnerji</div>
+        <h2 class="section-title" data-i18n="partners.title">Zanesljivi partnerji za vsak projekt</h2>
+      </div>
+      <a href="partners.html" class="section-more" data-i18n="partners.more">Vsi partnerji →</a>
+    </div>
+
+    <div class="partner-strip">
+      <a class="partner-tile" href="partners.html#partner-1">
+        <div class="partner-logo"><span class="partner-logo-mark">GRADTECH</span></div>
+        <p class="partner-tile-desc" data-i18n="partner.1.short">Pooblaščeni servis za celotno floto</p>
+      </a>
+      <a class="partner-tile" href="partners.html#partner-2">
+        <div class="partner-logo"><span class="partner-logo-mark">NORDIC MACHINERY</span></div>
+        <p class="partner-tile-desc" data-i18n="partner.2.short">Dobavitelj nove gradbene mehanizacije</p>
+      </a>
+      <a class="partner-tile" href="partners.html#partner-3">
+        <div class="partner-logo"><span class="partner-logo-mark">SAFEWORK SLOVENIJA</span></div>
+        <p class="partner-tile-desc" data-i18n="partner.3.short">Varnostna usposabljanja za upravljavce</p>
+      </a>
+      <a class="partner-tile" href="partners.html#partner-4">
+        <div class="partner-logo"><span class="partner-logo-mark">LOGIPRO TRANSPORT</span></div>
+        <p class="partner-tile-desc" data-i18n="partner.4.short">Prevoz opreme po vsej Sloveniji</p>
+      </a>
     </div>
   </div>
 </section>
@@ -924,8 +400,9 @@
         <h5 data-i18n="footer.col2">Podjetje</h5>
         <ul>
           <li><a href="#how" data-i18n="nav.how">Kako deluje</a></li>
+          <li><a href="reference.html" data-i18n="nav.references">Reference</a></li>
+          <li><a href="partners.html" data-i18n="nav.partners">Partnerji</a></li>
           <li><a href="#trust" data-i18n="nav.trust">Zakaj Renting</a></li>
-          <li><a href="#contact" data-i18n="nav.contact">Kontakt</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -945,12 +422,14 @@
 </footer>
 
 <script>
-  var TRANSLATIONS = {
+  window.TRANSLATIONS = {
     sl: {
       "meta.title": "Renting — Težka mehanizacija, pripravljena, ko ste vi",
       "topbar.hours": "Delovni čas: 7.00–15.00",
       "logo.brand": "<span class=\"logo-text-thin\">Skupina</span> <span class=\"logo-text-bold\">RENTING</span>",
       "nav.equipment": "Oprema",
+      "nav.references": "Reference",
+      "nav.partners": "Partnerji",
       "nav.how": "Kako deluje",
       "nav.trust": "Zakaj Renting",
       "nav.locations": "Lokacije",
@@ -1008,6 +487,25 @@
       "step.3.desc": "Oprema prispe pregledana, natočena z gorivom in pripravljena za delo — običajno v 24–48 urah.",
       "step.4.title": "Podpiramo vas med najemom",
       "step.4.desc": "Dežurna služba in zamenjava opreme, če med delom kaj odpove. Brez zaračunavanja izpadov.",
+      "ref.eyebrow": "Reference",
+      "ref.title": "Dela, ki govorijo sama zase",
+      "ref.more": "Vse reference →",
+      "ref.1.place": "Luka Koper",
+      "ref.1.subtitle": "Zemeljska dela in kompaktiranje",
+      "ref.1.title": "Sanacija skladiščnih površin",
+      "ref.1.desc": "Dva meseca najema mini bagrov in valjarjev za obnovo asfaltnih in tlakovanih površin na kontejnerskem terminalu, brez prekinitve pretovora.",
+      "ref.2.place": "Ljubljana – Bežigrad",
+      "ref.2.subtitle": "Izkop temeljev in odvoz materiala",
+      "ref.2.title": "Gradnja stanovanjskega kompleksa",
+      "ref.2.desc": "Najem standardnih bagrov in nakladalnikov za izkop temeljev novogradnje 64 stanovanjskih enot v osrednjem delu mesta.",
+      "ref.3.place": "Nova Gorica",
+      "ref.3.subtitle": "Cestogradnja in planiranje",
+      "ref.3.title": "Obnova mestnega obvoznika",
+      "ref.3.desc": "Dobava dozerjev in grederjev za širitev in planiranje treh kilometrov obvoznice, dokončano pred rokom.",
+      "ref.4.place": "Škofja Loka",
+      "ref.4.subtitle": "Nujna intervencija in zavarovanje brežine",
+      "ref.4.title": "Sanacija plazu nad naseljem",
+      "ref.4.desc": "24-urna dobava bagrov in generatorjev za zavarovanje brežine po zemeljskem plazu, delo je potekalo v izmenah do stabilizacije terena.",
       "trust.eyebrow": "Zakaj nam izvajalci ostajajo zvesti",
       "trust.title": "Z vašim urnikom ravnamo, kot bi bil naš",
       "trust.1.quote": "Kompaktni nakladalnik je odpovedal v petek popoldne. Nadomestnega so pripeljali na gradbišče, preden smo izgubili dan.",
@@ -1016,6 +514,13 @@
       "trust.2.name": "VODJA PROJEKTA — GRADBENO PODJETJE",
       "trust.3.quote": "Njihov vozni park je novejši in bolje vzdrževan, kot je bil naš, ko smo opremo še imeli v lasti.",
       "trust.3.name": "LASTNIK — PODJETJE ZA ZEMELJSKA DELA",
+      "partners.eyebrow": "Partnerji",
+      "partners.title": "Zanesljivi partnerji za vsak projekt",
+      "partners.more": "Vsi partnerji →",
+      "partner.1.short": "Pooblaščeni servis za celotno floto",
+      "partner.2.short": "Dobavitelj nove gradbene mehanizacije",
+      "partner.3.short": "Varnostna usposabljanja za upravljavce",
+      "partner.4.short": "Prevoz opreme po vsej Sloveniji",
       "cta.title": "Pravi stroj <span>na gradbišču</span>, pravočasno.",
       "cta.desc": "Povejte nam, kaj delo potrebuje — v enem delovnem dnevu vam sporočimo razpoložljivost in ceno.",
       "cta.btn1": "Pišite oddelku za najem",
@@ -1040,6 +545,8 @@
       "topbar.hours": "Working hours: 7.00–15.00",
       "logo.brand": "<span class=\"logo-text-bold\">RENTING</span> <span class=\"logo-text-thin\">Group</span>",
       "nav.equipment": "Equipment",
+      "nav.references": "References",
+      "nav.partners": "Partners",
       "nav.how": "How It Works",
       "nav.trust": "Why Renting",
       "nav.locations": "Locations",
@@ -1097,6 +604,25 @@
       "step.3.desc": "Equipment arrives inspected, fueled, and ready to run — usually within 24–48 hours.",
       "step.4.title": "We support the rental",
       "step.4.desc": "On-call service and swap-out if anything goes down mid-job. No downtime billed to you.",
+      "ref.eyebrow": "References",
+      "ref.title": "Work that speaks for itself",
+      "ref.more": "All references →",
+      "ref.1.place": "Port of Koper",
+      "ref.1.subtitle": "Earthworks & Compaction",
+      "ref.1.title": "Storage Yard Rehabilitation",
+      "ref.1.desc": "Two months of mini excavator and roller rentals to resurface asphalt and paved areas at the container terminal, without disrupting cargo handling.",
+      "ref.2.place": "Ljubljana – Bežigrad",
+      "ref.2.subtitle": "Foundation Excavation & Haul-off",
+      "ref.2.title": "Residential Complex Construction",
+      "ref.2.desc": "Standard excavator and loader rentals for foundation excavation on a new 64-unit residential development in the city center.",
+      "ref.3.place": "Nova Gorica",
+      "ref.3.subtitle": "Road Construction & Grading",
+      "ref.3.title": "Ring Road Renovation",
+      "ref.3.desc": "Supplied dozers and motor graders for widening and grading three kilometers of ring road, completed ahead of schedule.",
+      "ref.4.place": "Škofja Loka",
+      "ref.4.subtitle": "Emergency Response & Slope Stabilization",
+      "ref.4.title": "Landslide Slope Remediation",
+      "ref.4.desc": "24-hour excavator and generator supply to secure the slope after a landslide, working in shifts around the clock until the terrain was stabilized.",
       "trust.eyebrow": "Why Contractors Stick With Us",
       "trust.title": "We treat your schedule like it's ours",
       "trust.1.quote": "A skid steer went down on a Friday afternoon. They had a replacement on-site before we lost the day.",
@@ -1105,6 +631,13 @@
       "trust.2.name": "PROJECT MANAGER — GENERAL CONTRACTOR",
       "trust.3.quote": "Their fleet is newer and better maintained than what we used to own ourselves.",
       "trust.3.name": "OWNER — EXCAVATION COMPANY",
+      "partners.eyebrow": "Partners",
+      "partners.title": "Reliable partners for every project",
+      "partners.more": "All partners →",
+      "partner.1.short": "Authorized service for our entire fleet",
+      "partner.2.short": "Supplier of new construction machinery",
+      "partner.3.short": "Safety training for equipment operators",
+      "partner.4.short": "Equipment transport across Slovenia",
       "cta.title": "Get the right machine <span>on-site</span>, on time.",
       "cta.desc": "Tell us what the job needs — we'll get back to you with availability and pricing within one business day.",
       "cta.btn1": "Email the Rental Desk",
@@ -1125,34 +658,8 @@
       "footer.legal": "Terms · Privacy · Safety Data Sheets"
     }
   };
-
-  function applyLang(lang) {
-    if (!TRANSLATIONS[lang]) return;
-    var dict = TRANSLATIONS[lang];
-    document.documentElement.setAttribute('lang', lang);
-    if (dict['meta.title']) document.title = dict['meta.title'];
-    document.querySelectorAll('[data-i18n]').forEach(function (el) {
-      var key = el.getAttribute('data-i18n');
-      if (dict[key] !== undefined) el.textContent = dict[key];
-    });
-    document.querySelectorAll('[data-i18n-html]').forEach(function (el) {
-      var key = el.getAttribute('data-i18n-html');
-      if (dict[key] !== undefined) el.innerHTML = dict[key];
-    });
-    document.querySelectorAll('.lang-btn').forEach(function (btn) {
-      btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
-    });
-    try { localStorage.setItem('renting-lang', lang); } catch (e) {}
-  }
-
-  document.querySelectorAll('.lang-btn').forEach(function (btn) {
-    btn.addEventListener('click', function () { applyLang(btn.getAttribute('data-lang')); });
-  });
-
-  var savedLang = 'sl';
-  try { savedLang = localStorage.getItem('renting-lang') || 'sl'; } catch (e) {}
-  applyLang(savedLang);
 </script>
+<script src="js/i18n.js"></script>
 
 </body>
 </html>
