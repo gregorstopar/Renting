@@ -138,6 +138,31 @@
   }
   .nav-cta:hover{background:var(--amber-600);}
   .nav-toggle{display:none;}
+  .nav-right{
+    display:flex;
+    align-items:center;
+    gap:18px;
+  }
+  .lang-switch{
+    display:flex;
+    border:1px solid rgba(255,255,255,0.18);
+    border-radius:2px;
+    overflow:hidden;
+  }
+  .lang-btn{
+    font-family:var(--font-mono);
+    font-size:12px;
+    font-weight:500;
+    letter-spacing:0.04em;
+    color:var(--concrete-500);
+    background:transparent;
+    border:0;
+    cursor:pointer;
+    padding:7px 11px;
+    transition:background 0.2s ease, color 0.2s ease;
+  }
+  .lang-btn:hover{color:var(--paper-100);}
+  .lang-btn.active{background:var(--amber-500);color:var(--steel-900);}
 
   /* ---------- Hero ---------- */
   .hero{
@@ -625,50 +650,56 @@
 <div class="topbar">
   <div class="wrap topbar-inner">
     <a href="mailto:info@renting.si">info@renting.si</a>
-    <span>Delovni čas: 7.00–15.00</span>
+    <span data-i18n="topbar.hours">Delovni čas: 7.00–15.00</span>
   </div>
 </div>
 
 <header>
   <nav>
-    <a href="#" class="logo"><svg class="logo-mark" aria-hidden="true"><use href="#renting-mark"></use></svg><span><span class="logo-text-thin">Skupina</span> <span class="logo-text-bold">RENTING</span></span></a>
+    <a href="#" class="logo"><svg class="logo-mark" aria-hidden="true"><use href="#renting-mark"></use></svg><span data-i18n-html="logo.brand"><span class="logo-text-thin">Skupina</span> <span class="logo-text-bold">RENTING</span></span></a>
     <ul class="nav-links">
-      <li><a href="#equipment">Oprema</a></li>
-      <li><a href="#how">Kako deluje</a></li>
-      <li><a href="#trust">Zakaj Renting</a></li>
-      <li><a href="#locations">Lokacije</a></li>
-      <li><a href="#contact">Kontakt</a></li>
+      <li><a href="#equipment" data-i18n="nav.equipment">Oprema</a></li>
+      <li><a href="#how" data-i18n="nav.how">Kako deluje</a></li>
+      <li><a href="#trust" data-i18n="nav.trust">Zakaj Renting</a></li>
+      <li><a href="#locations" data-i18n="nav.locations">Lokacije</a></li>
+      <li><a href="#contact" data-i18n="nav.contact">Kontakt</a></li>
     </ul>
-    <a href="#contact" class="nav-cta">Zaprosite za ponudbo</a>
+    <div class="nav-right">
+      <div class="lang-switch">
+        <button type="button" class="lang-btn" data-lang="sl">SL</button>
+        <button type="button" class="lang-btn" data-lang="en">EN</button>
+      </div>
+      <a href="#contact" class="nav-cta" data-i18n="nav.cta">Zaprosite za ponudbo</a>
+    </div>
   </nav>
 </header>
 
 <div class="plate-bg">
   <div class="wrap hero">
-    <div class="hero-eyebrow">Sledenje voznemu parku v živo kmalu na voljo</div>
-    <h1>Težka mehanizacija,<br>pripravljena, ko ste <span>vi</span>.</h1>
-    <p>Renting oddaja bagre, nakladalnike, valjarje in gradbeno opremo izvajalcem po vsej regiji — z jasnim cenikom in opremo, ki deluje takoj, ko prispe.</p>
+    <div class="hero-eyebrow" data-i18n="hero.eyebrow">Sledenje voznemu parku v živo kmalu na voljo</div>
+    <h1 data-i18n-html="hero.title">Težka mehanizacija,<br>pripravljena, ko ste <span>vi</span>.</h1>
+    <p data-i18n="hero.desc">Renting oddaja bagre, nakladalnike, valjarje in gradbeno opremo izvajalcem po vsej regiji — z jasnim cenikom in opremo, ki deluje takoj, ko prispe.</p>
     <div class="hero-actions">
-      <a href="#contact" class="btn-primary">Zaprosite za ponudbo</a>
-      <a href="#equipment" class="btn-secondary">Poglejte vozni park</a>
+      <a href="#contact" class="btn-primary" data-i18n="nav.cta">Zaprosite za ponudbo</a>
+      <a href="#equipment" class="btn-secondary" data-i18n="hero.ctaSecondary">Poglejte vozni park</a>
     </div>
 
     <div class="stat-strip">
       <div>
         <div class="stat-num">180+</div>
-        <div class="stat-label">Strojev v voznem parku</div>
+        <div class="stat-label" data-i18n="stat.1">Strojev v voznem parku</div>
       </div>
       <div>
         <div class="stat-num">24H</div>
-        <div class="stat-label">Nujna zamenjava</div>
+        <div class="stat-label" data-i18n="stat.2">Nujna zamenjava</div>
       </div>
       <div>
         <div class="stat-num">14</div>
-        <div class="stat-label">Let oddajanja izvajalcem</div>
+        <div class="stat-label" data-i18n="stat.3">Let oddajanja izvajalcem</div>
       </div>
       <div>
         <div class="stat-num">97%</div>
-        <div class="stat-label">Delež pravočasnih dostav</div>
+        <div class="stat-label" data-i18n="stat.4">Delež pravočasnih dostav</div>
       </div>
     </div>
   </div>
@@ -678,86 +709,86 @@
   <div class="wrap">
     <div class="equip-head">
       <div>
-        <div class="section-eyebrow">Vozni park</div>
-        <h2 class="section-title">Zgrajeno za gradbišče, ne za razstavni salon</h2>
+        <div class="section-eyebrow" data-i18n="equip.eyebrow">Vozni park</div>
+        <h2 class="section-title" data-i18n="equip.title">Zgrajeno za gradbišče, ne za razstavni salon</h2>
       </div>
-      <p class="section-sub">Predogled trenutno razpoložljive opreme. Ko bo ta razdelek povezan z živo zalogo, bo prikazoval stanje v realnem času neposredno iz dvorišča.</p>
+      <p class="section-sub" data-i18n="equip.sub">Predogled trenutno razpoložljive opreme. Ko bo ta razdelek povezan z živo zalogo, bo prikazoval stanje v realnem času neposredno iz dvorišča.</p>
     </div>
 
     <div class="equip-grid">
       <div class="equip-card">
-        <div class="equip-index">01 / Izkopi</div>
-        <h3>Mini in standardni bagri</h3>
-        <p>Razred 1,5–20 ton, kratki in standardni radiji vrtenja za ozka ali odprta gradbišča.</p>
-        <div class="status-row"><span class="status-dot available"></span>Na voljo — 12 enot</div>
+        <div class="equip-index" data-i18n="equip.1.index">01 / Izkopi</div>
+        <h3 data-i18n="equip.1.title">Mini in standardni bagri</h3>
+        <p data-i18n="equip.1.desc">Razred 1,5–20 ton, kratki in standardni radiji vrtenja za ozka ali odprta gradbišča.</p>
+        <div class="status-row"><span class="status-dot available"></span><span data-i18n="equip.1.status">Na voljo — 12 enot</span></div>
       </div>
       <div class="equip-card">
-        <div class="equip-index">02 / Nakladanje</div>
-        <h3>Nakladalniki in kompaktni nakladalniki</h3>
-        <p>Kolesne in gosenične izvedbe z združljivostjo priključkov za planiranje, čiščenje in premikanje materiala.</p>
-        <div class="status-row"><span class="status-dot limited"></span>Omejeno — 3 enote</div>
+        <div class="equip-index" data-i18n="equip.2.index">02 / Nakladanje</div>
+        <h3 data-i18n="equip.2.title">Nakladalniki in kompaktni nakladalniki</h3>
+        <p data-i18n="equip.2.desc">Kolesne in gosenične izvedbe z združljivostjo priključkov za planiranje, čiščenje in premikanje materiala.</p>
+        <div class="status-row"><span class="status-dot limited"></span><span data-i18n="equip.2.status">Omejeno — 3 enote</span></div>
       </div>
       <div class="equip-card">
-        <div class="equip-index">03 / Zbijanje</div>
-        <h3>Vibracijske plošče in valjarji</h3>
-        <p>Od reverzibilnih plošč do sedežnih valjarjev za zbijanje asfalta, zemljine in agregatov.</p>
-        <div class="status-row"><span class="status-dot available"></span>Na voljo — 9 enot</div>
+        <div class="equip-index" data-i18n="equip.3.index">03 / Zbijanje</div>
+        <h3 data-i18n="equip.3.title">Vibracijske plošče in valjarji</h3>
+        <p data-i18n="equip.3.desc">Od reverzibilnih plošč do sedežnih valjarjev za zbijanje asfalta, zemljine in agregatov.</p>
+        <div class="status-row"><span class="status-dot available"></span><span data-i18n="equip.3.status">Na voljo — 9 enot</span></div>
       </div>
       <div class="equip-card">
-        <div class="equip-index">04 / Dviganje</div>
-        <h3>Dvižne ploščadi in teleskopski manipulatorji</h3>
-        <p>Škarjaste in členkaste dvižne ploščadi ter teleskopski manipulatorji za doseg, višino in teren gradbišča.</p>
-        <div class="status-row"><span class="status-dot booked"></span>Zasedeno — naslednje na voljo v četrtek</div>
+        <div class="equip-index" data-i18n="equip.4.index">04 / Dviganje</div>
+        <h3 data-i18n="equip.4.title">Dvižne ploščadi in teleskopski manipulatorji</h3>
+        <p data-i18n="equip.4.desc">Škarjaste in členkaste dvižne ploščadi ter teleskopski manipulatorji za doseg, višino in teren gradbišča.</p>
+        <div class="status-row"><span class="status-dot booked"></span><span data-i18n="equip.4.status">Zasedeno — naslednje na voljo v četrtek</span></div>
       </div>
       <div class="equip-card">
-        <div class="equip-index">05 / Zemeljska dela</div>
-        <h3>Buldožerji in grederji</h3>
-        <p>Srednje veliki buldožerji in cestni grederji za pripravo gradbišča, planiranje in obsežnejša zemeljska dela.</p>
-        <div class="status-row"><span class="status-dot available"></span>Na voljo — 5 enot</div>
+        <div class="equip-index" data-i18n="equip.5.index">05 / Zemeljska dela</div>
+        <h3 data-i18n="equip.5.title">Buldožerji in grederji</h3>
+        <p data-i18n="equip.5.desc">Srednje veliki buldožerji in cestni grederji za pripravo gradbišča, planiranje in obsežnejša zemeljska dela.</p>
+        <div class="status-row"><span class="status-dot available"></span><span data-i18n="equip.5.status">Na voljo — 5 enot</span></div>
       </div>
       <div class="equip-card">
-        <div class="equip-index">06 / Podpora</div>
-        <h3>Generatorji in napajanje gradbišča</h3>
-        <p>Vlečni in stacionarni generatorji, svetlobni stolpi in oprema za distribucijo električne energije na gradbišču.</p>
-        <div class="status-row"><span class="status-dot available"></span>Na voljo — 21 enot</div>
+        <div class="equip-index" data-i18n="equip.6.index">06 / Podpora</div>
+        <h3 data-i18n="equip.6.title">Generatorji in napajanje gradbišča</h3>
+        <p data-i18n="equip.6.desc">Vlečni in stacionarni generatorji, svetlobni stolpi in oprema za distribucijo električne energije na gradbišču.</p>
+        <div class="status-row"><span class="status-dot available"></span><span data-i18n="equip.6.status">Na voljo — 21 enot</span></div>
       </div>
     </div>
 
     <div class="data-teaser">
       <div class="data-teaser-text">
-        <h4>Zaloga v realnem času kmalu na voljo</h4>
-        <p>Ta katalog povezujemo neposredno z našim sistemom za upravljanje dvorišča, tako da se bodo razpoložljivost, lokacija in datumi vrnitve posodabljali samodejno — brez klicanja za preverjanje prostih strojev.</p>
+        <h4 data-i18n="teaser.title">Zaloga v realnem času kmalu na voljo</h4>
+        <p data-i18n="teaser.desc">Ta katalog povezujemo neposredno z našim sistemom za upravljanje dvorišča, tako da se bodo razpoložljivost, lokacija in datumi vrnitve posodabljali samodejno — brez klicanja za preverjanje prostih strojev.</p>
       </div>
-      <div class="data-teaser-tag">V RAZVOJU</div>
+      <div class="data-teaser-tag" data-i18n="teaser.tag">V RAZVOJU</div>
     </div>
   </div>
 </section>
 
 <section id="how">
   <div class="wrap">
-    <div class="section-eyebrow">Postopek</div>
-    <h2 class="section-title">Najem pri Rentingu, od začetka do konca</h2>
+    <div class="section-eyebrow" data-i18n="how.eyebrow">Postopek</div>
+    <h2 class="section-title" data-i18n="how.title">Najem pri Rentingu, od začetka do konca</h2>
 
     <div class="steps">
       <div class="step">
         <div class="step-num">01</div>
-        <h4>Povejte nam o delu</h4>
-        <p>Pošljite nam obseg del, razmere na gradbišču in časovnico — poiskali bomo ustrezno opremo za delo.</p>
+        <h4 data-i18n="step.1.title">Povejte nam o delu</h4>
+        <p data-i18n="step.1.desc">Pošljite nam obseg del, razmere na gradbišču in časovnico — poiskali bomo ustrezno opremo za delo.</p>
       </div>
       <div class="step">
         <div class="step-num">02</div>
-        <h4>Prejmite ponudbo</h4>
-        <p>Pregledne dnevne, tedenske in mesečne cene brez skritih stroškov dostave.</p>
+        <h4 data-i18n="step.2.title">Prejmite ponudbo</h4>
+        <p data-i18n="step.2.desc">Pregledne dnevne, tedenske in mesečne cene brez skritih stroškov dostave.</p>
       </div>
       <div class="step">
         <div class="step-num">03</div>
-        <h4>Dostavimo</h4>
-        <p>Oprema prispe pregledana, natočena z gorivom in pripravljena za delo — običajno v 24–48 urah.</p>
+        <h4 data-i18n="step.3.title">Dostavimo</h4>
+        <p data-i18n="step.3.desc">Oprema prispe pregledana, natočena z gorivom in pripravljena za delo — običajno v 24–48 urah.</p>
       </div>
       <div class="step">
         <div class="step-num">04</div>
-        <h4>Podpiramo vas med najemom</h4>
-        <p>Dežurna služba in zamenjava opreme, če med delom kaj odpove. Brez zaračunavanja izpadov.</p>
+        <h4 data-i18n="step.4.title">Podpiramo vas med najemom</h4>
+        <p data-i18n="step.4.desc">Dežurna služba in zamenjava opreme, če med delom kaj odpove. Brez zaračunavanja izpadov.</p>
       </div>
     </div>
   </div>
@@ -765,21 +796,21 @@
 
 <section id="trust" class="trust">
   <div class="wrap">
-    <div class="section-eyebrow">Zakaj nam izvajalci ostajajo zvesti</div>
-    <h2 class="section-title">Z vašim urnikom ravnamo, kot bi bil naš</h2>
+    <div class="section-eyebrow" data-i18n="trust.eyebrow">Zakaj nam izvajalci ostajajo zvesti</div>
+    <h2 class="section-title" data-i18n="trust.title">Z vašim urnikom ravnamo, kot bi bil naš</h2>
 
     <div class="trust-grid" style="margin-top:56px;">
       <div class="trust-card">
-        <p class="trust-quote">Kompaktni nakladalnik je odpovedal v petek popoldne. Nadomestnega so pripeljali na gradbišče, preden smo izgubili dan.</p>
-        <div class="trust-name">VODJA GRADBIŠČA — IZVAJALEC ZEMELJSKIH DEL</div>
+        <p class="trust-quote" data-i18n="trust.1.quote">Kompaktni nakladalnik je odpovedal v petek popoldne. Nadomestnega so pripeljali na gradbišče, preden smo izgubili dan.</p>
+        <div class="trust-name" data-i18n="trust.1.name">VODJA GRADBIŠČA — IZVAJALEC ZEMELJSKIH DEL</div>
       </div>
       <div class="trust-card">
-        <p class="trust-quote">Jasno oblikovane cene, brez presenečenj na računu. Že samo zato se vračamo.</p>
-        <div class="trust-name">VODJA PROJEKTA — GRADBENO PODJETJE</div>
+        <p class="trust-quote" data-i18n="trust.2.quote">Jasno oblikovane cene, brez presenečenj na računu. Že samo zato se vračamo.</p>
+        <div class="trust-name" data-i18n="trust.2.name">VODJA PROJEKTA — GRADBENO PODJETJE</div>
       </div>
       <div class="trust-card">
-        <p class="trust-quote">Njihov vozni park je novejši in bolje vzdrževan, kot je bil naš, ko smo opremo še imeli v lasti.</p>
-        <div class="trust-name">LASTNIK — PODJETJE ZA ZEMELJSKA DELA</div>
+        <p class="trust-quote" data-i18n="trust.3.quote">Njihov vozni park je novejši in bolje vzdrževan, kot je bil naš, ko smo opremo še imeli v lasti.</p>
+        <div class="trust-name" data-i18n="trust.3.name">LASTNIK — PODJETJE ZA ZEMELJSKA DELA</div>
       </div>
     </div>
   </div>
@@ -787,27 +818,27 @@
 
 <section id="contact" class="cta">
   <div class="wrap">
-    <h2>Pravi stroj <span>na gradbišču</span>, pravočasno.</h2>
-    <p>Povejte nam, kaj delo potrebuje — v enem delovnem dnevu vam sporočimo razpoložljivost in ceno.</p>
+    <h2 data-i18n-html="cta.title">Pravi stroj <span>na gradbišču</span>, pravočasno.</h2>
+    <p data-i18n="cta.desc">Povejte nam, kaj delo potrebuje — v enem delovnem dnevu vam sporočimo razpoložljivost in ceno.</p>
     <div class="cta-actions">
-      <a href="mailto:info@renting.si" class="btn-dark">Pišite oddelku za najem</a>
-      <a href="tel:+10000000000" class="btn-outline-dark">Pokličite (000) 000-0000</a>
+      <a href="mailto:info@renting.si" class="btn-dark" data-i18n="cta.btn1">Pišite oddelku za najem</a>
+      <a href="tel:+10000000000" class="btn-outline-dark" data-i18n="cta.btn2">Pokličite (000) 000-0000</a>
     </div>
   </div>
 </section>
 
 <section id="locations">
   <div class="wrap">
-    <div class="section-eyebrow">Naše lokacije</div>
-    <h2 class="section-title">Blizu vas, po vsej Sloveniji</h2>
+    <div class="section-eyebrow" data-i18n="loc.eyebrow">Naše lokacije</div>
+    <h2 class="section-title" data-i18n="loc.title">Blizu vas, po vsej Sloveniji</h2>
 
     <div class="quick-contact">
       <div class="quick-contact-item">
-        <span class="quick-contact-label">E-pošta</span>
+        <span class="quick-contact-label" data-i18n="loc.emailLabel">E-pošta</span>
         <span class="quick-contact-value"><a href="mailto:info@renting.si">info@renting.si</a></span>
       </div>
       <div class="quick-contact-item">
-        <span class="quick-contact-label">Delovni čas</span>
+        <span class="quick-contact-label" data-i18n="loc.hoursLabel">Delovni čas</span>
         <span class="quick-contact-value">7.00–15.00</span>
       </div>
     </div>
@@ -816,11 +847,11 @@
       <div class="location-card">
         <h3>Koper</h3>
         <div class="location-detail">
-          <span class="location-label">Naslov</span>
+          <span class="location-label" data-i18n="loc.addressLabel">Naslov</span>
           Ulica 15. maja 10, Koper
         </div>
         <div class="location-detail">
-          <span class="location-label">Telefon</span>
+          <span class="location-label" data-i18n="loc.phoneLabel">Telefon</span>
           <a href="tel:+38656632460">05/663 24 60</a>
         </div>
         <div class="location-map">
@@ -830,11 +861,11 @@
       <div class="location-card">
         <h3>Ljubljana - Zalog</h3>
         <div class="location-detail">
-          <span class="location-label">Naslov</span>
-          V pripravi
+          <span class="location-label" data-i18n="loc.addressLabel">Naslov</span>
+          <span data-i18n="loc.pending">V pripravi</span>
         </div>
         <div class="location-detail">
-          <span class="location-label">Telefon</span>
+          <span class="location-label" data-i18n="loc.phoneLabel">Telefon</span>
           <a href="tel:+38615308550">01/530 85 50</a>
         </div>
         <div class="location-map">
@@ -844,11 +875,11 @@
       <div class="location-card">
         <h3>Ljubljana - Rudnik</h3>
         <div class="location-detail">
-          <span class="location-label">Naslov</span>
+          <span class="location-label" data-i18n="loc.addressLabel">Naslov</span>
           Dolenjska cesta 157, Ljubljana
         </div>
         <div class="location-detail">
-          <span class="location-label">Telefon</span>
+          <span class="location-label" data-i18n="loc.phoneLabel">Telefon</span>
           <a href="tel:+38612801650">01/280 16 50</a>
         </div>
         <div class="location-map">
@@ -858,11 +889,11 @@
       <div class="location-card">
         <h3>Nova Gorica - Vrtojba</h3>
         <div class="location-detail">
-          <span class="location-label">Naslov</span>
+          <span class="location-label" data-i18n="loc.addressLabel">Naslov</span>
           Polje 24, Šempeter pri Gorici
         </div>
         <div class="location-detail">
-          <span class="location-label">Telefon</span>
+          <span class="location-label" data-i18n="loc.phoneLabel">Telefon</span>
           <a href="tel:+38653304530">05/330 45 30</a>
         </div>
         <div class="location-map">
@@ -878,40 +909,250 @@
     <div class="footer-grid">
       <div>
         <div class="footer-logo"><svg class="logo-mark" aria-hidden="true"><use href="#renting-mark"></use></svg>RENTING</div>
-        <p class="footer-desc">Oddajanje težke gradbene opreme izvajalcem, ki si ne morejo privoščiti izpadov. Regionalni vozni park, ponudbe še isti dan, poštene cene.</p>
+        <p class="footer-desc" data-i18n="footer.desc">Oddajanje težke gradbene opreme izvajalcem, ki si ne morejo privoščiti izpadov. Regionalni vozni park, ponudbe še isti dan, poštene cene.</p>
       </div>
       <div class="footer-col">
-        <h5>Vozni park</h5>
+        <h5 data-i18n="footer.col1">Vozni park</h5>
         <ul>
-          <li><a href="#equipment">Izkopi</a></li>
-          <li><a href="#equipment">Nakladanje</a></li>
-          <li><a href="#equipment">Zbijanje</a></li>
-          <li><a href="#equipment">Dviganje</a></li>
+          <li><a href="#equipment" data-i18n="equip.1.short">Izkopi</a></li>
+          <li><a href="#equipment" data-i18n="equip.2.short">Nakladanje</a></li>
+          <li><a href="#equipment" data-i18n="equip.3.short">Zbijanje</a></li>
+          <li><a href="#equipment" data-i18n="equip.4.short">Dviganje</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h5>Podjetje</h5>
+        <h5 data-i18n="footer.col2">Podjetje</h5>
         <ul>
-          <li><a href="#how">Kako deluje</a></li>
-          <li><a href="#trust">Zakaj Renting</a></li>
-          <li><a href="#contact">Kontakt</a></li>
+          <li><a href="#how" data-i18n="nav.how">Kako deluje</a></li>
+          <li><a href="#trust" data-i18n="nav.trust">Zakaj Renting</a></li>
+          <li><a href="#contact" data-i18n="nav.contact">Kontakt</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h5>Kontakt</h5>
+        <h5 data-i18n="footer.col3">Kontakt</h5>
         <ul>
           <li><a href="mailto:info@renting.si">info@renting.si</a></li>
           <li><a href="tel:+10000000000">(000) 000-0000</a></li>
-          <li>Pon–Sob, 6.00–18.00</li>
+          <li data-i18n="footer.hours">Pon–Sob, 6.00–18.00</li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Renting. Vsebina je vzorčna — zamenjajte s svojimi podatki.</span>
-      <span>Pogoji · Zasebnost · Varnostni listi</span>
+      <span data-i18n="footer.copyright">© 2026 Renting. Vsebina je vzorčna — zamenjajte s svojimi podatki.</span>
+      <span data-i18n="footer.legal">Pogoji · Zasebnost · Varnostni listi</span>
     </div>
   </div>
 </footer>
+
+<script>
+  var TRANSLATIONS = {
+    sl: {
+      "meta.title": "Renting — Težka mehanizacija, pripravljena, ko ste vi",
+      "topbar.hours": "Delovni čas: 7.00–15.00",
+      "logo.brand": "<span class=\"logo-text-thin\">Skupina</span> <span class=\"logo-text-bold\">RENTING</span>",
+      "nav.equipment": "Oprema",
+      "nav.how": "Kako deluje",
+      "nav.trust": "Zakaj Renting",
+      "nav.locations": "Lokacije",
+      "nav.contact": "Kontakt",
+      "nav.cta": "Zaprosite za ponudbo",
+      "hero.eyebrow": "Sledenje voznemu parku v živo kmalu na voljo",
+      "hero.title": "Težka mehanizacija,<br>pripravljena, ko ste <span>vi</span>.",
+      "hero.desc": "Renting oddaja bagre, nakladalnike, valjarje in gradbeno opremo izvajalcem po vsej regiji — z jasnim cenikom in opremo, ki deluje takoj, ko prispe.",
+      "hero.ctaSecondary": "Poglejte vozni park",
+      "stat.1": "Strojev v voznem parku",
+      "stat.2": "Nujna zamenjava",
+      "stat.3": "Let oddajanja izvajalcem",
+      "stat.4": "Delež pravočasnih dostav",
+      "equip.eyebrow": "Vozni park",
+      "equip.title": "Zgrajeno za gradbišče, ne za razstavni salon",
+      "equip.sub": "Predogled trenutno razpoložljive opreme. Ko bo ta razdelek povezan z živo zalogo, bo prikazoval stanje v realnem času neposredno iz dvorišča.",
+      "equip.1.index": "01 / Izkopi",
+      "equip.1.title": "Mini in standardni bagri",
+      "equip.1.desc": "Razred 1,5–20 ton, kratki in standardni radiji vrtenja za ozka ali odprta gradbišča.",
+      "equip.1.status": "Na voljo — 12 enot",
+      "equip.1.short": "Izkopi",
+      "equip.2.index": "02 / Nakladanje",
+      "equip.2.title": "Nakladalniki in kompaktni nakladalniki",
+      "equip.2.desc": "Kolesne in gosenične izvedbe z združljivostjo priključkov za planiranje, čiščenje in premikanje materiala.",
+      "equip.2.status": "Omejeno — 3 enote",
+      "equip.2.short": "Nakladanje",
+      "equip.3.index": "03 / Zbijanje",
+      "equip.3.title": "Vibracijske plošče in valjarji",
+      "equip.3.desc": "Od reverzibilnih plošč do sedežnih valjarjev za zbijanje asfalta, zemljine in agregatov.",
+      "equip.3.status": "Na voljo — 9 enot",
+      "equip.3.short": "Zbijanje",
+      "equip.4.index": "04 / Dviganje",
+      "equip.4.title": "Dvižne ploščadi in teleskopski manipulatorji",
+      "equip.4.desc": "Škarjaste in členkaste dvižne ploščadi ter teleskopski manipulatorji za doseg, višino in teren gradbišča.",
+      "equip.4.status": "Zasedeno — naslednje na voljo v četrtek",
+      "equip.4.short": "Dviganje",
+      "equip.5.index": "05 / Zemeljska dela",
+      "equip.5.title": "Buldožerji in grederji",
+      "equip.5.desc": "Srednje veliki buldožerji in cestni grederji za pripravo gradbišča, planiranje in obsežnejša zemeljska dela.",
+      "equip.5.status": "Na voljo — 5 enot",
+      "equip.6.index": "06 / Podpora",
+      "equip.6.title": "Generatorji in napajanje gradbišča",
+      "equip.6.desc": "Vlečni in stacionarni generatorji, svetlobni stolpi in oprema za distribucijo električne energije na gradbišču.",
+      "equip.6.status": "Na voljo — 21 enot",
+      "teaser.title": "Zaloga v realnem času kmalu na voljo",
+      "teaser.desc": "Ta katalog povezujemo neposredno z našim sistemom za upravljanje dvorišča, tako da se bodo razpoložljivost, lokacija in datumi vrnitve posodabljali samodejno — brez klicanja za preverjanje prostih strojev.",
+      "teaser.tag": "V RAZVOJU",
+      "how.eyebrow": "Postopek",
+      "how.title": "Najem pri Rentingu, od začetka do konca",
+      "step.1.title": "Povejte nam o delu",
+      "step.1.desc": "Pošljite nam obseg del, razmere na gradbišču in časovnico — poiskali bomo ustrezno opremo za delo.",
+      "step.2.title": "Prejmite ponudbo",
+      "step.2.desc": "Pregledne dnevne, tedenske in mesečne cene brez skritih stroškov dostave.",
+      "step.3.title": "Dostavimo",
+      "step.3.desc": "Oprema prispe pregledana, natočena z gorivom in pripravljena za delo — običajno v 24–48 urah.",
+      "step.4.title": "Podpiramo vas med najemom",
+      "step.4.desc": "Dežurna služba in zamenjava opreme, če med delom kaj odpove. Brez zaračunavanja izpadov.",
+      "trust.eyebrow": "Zakaj nam izvajalci ostajajo zvesti",
+      "trust.title": "Z vašim urnikom ravnamo, kot bi bil naš",
+      "trust.1.quote": "Kompaktni nakladalnik je odpovedal v petek popoldne. Nadomestnega so pripeljali na gradbišče, preden smo izgubili dan.",
+      "trust.1.name": "VODJA GRADBIŠČA — IZVAJALEC ZEMELJSKIH DEL",
+      "trust.2.quote": "Jasno oblikovane cene, brez presenečenj na računu. Že samo zato se vračamo.",
+      "trust.2.name": "VODJA PROJEKTA — GRADBENO PODJETJE",
+      "trust.3.quote": "Njihov vozni park je novejši in bolje vzdrževan, kot je bil naš, ko smo opremo še imeli v lasti.",
+      "trust.3.name": "LASTNIK — PODJETJE ZA ZEMELJSKA DELA",
+      "cta.title": "Pravi stroj <span>na gradbišču</span>, pravočasno.",
+      "cta.desc": "Povejte nam, kaj delo potrebuje — v enem delovnem dnevu vam sporočimo razpoložljivost in ceno.",
+      "cta.btn1": "Pišite oddelku za najem",
+      "cta.btn2": "Pokličite (000) 000-0000",
+      "loc.eyebrow": "Naše lokacije",
+      "loc.title": "Blizu vas, po vsej Sloveniji",
+      "loc.emailLabel": "E-pošta",
+      "loc.hoursLabel": "Delovni čas",
+      "loc.addressLabel": "Naslov",
+      "loc.phoneLabel": "Telefon",
+      "loc.pending": "V pripravi",
+      "footer.desc": "Oddajanje težke gradbene opreme izvajalcem, ki si ne morejo privoščiti izpadov. Regionalni vozni park, ponudbe še isti dan, poštene cene.",
+      "footer.col1": "Vozni park",
+      "footer.col2": "Podjetje",
+      "footer.col3": "Kontakt",
+      "footer.hours": "Pon–Sob, 6.00–18.00",
+      "footer.copyright": "© 2026 Renting. Vsebina je vzorčna — zamenjajte s svojimi podatki.",
+      "footer.legal": "Pogoji · Zasebnost · Varnostni listi"
+    },
+    en: {
+      "meta.title": "Renting — Heavy Machinery, Ready When You Are",
+      "topbar.hours": "Working hours: 7.00–15.00",
+      "logo.brand": "<span class=\"logo-text-bold\">RENTING</span> <span class=\"logo-text-thin\">Group</span>",
+      "nav.equipment": "Equipment",
+      "nav.how": "How It Works",
+      "nav.trust": "Why Renting",
+      "nav.locations": "Locations",
+      "nav.contact": "Contact",
+      "nav.cta": "Request a Quote",
+      "hero.eyebrow": "Live fleet tracking coming online",
+      "hero.title": "Heavy machinery,<br>ready when <span>you</span> are.",
+      "hero.desc": "Renting rents excavators, loaders, compactors, and site equipment to contractors across the region — with straightforward pricing and equipment that shows up working.",
+      "hero.ctaSecondary": "Browse the Fleet",
+      "stat.1": "Machines in the fleet",
+      "stat.2": "Emergency swap-out",
+      "stat.3": "Years renting to contractors",
+      "stat.4": "On-time delivery rate",
+      "equip.eyebrow": "The Fleet",
+      "equip.title": "Built for the job site, not the showroom",
+      "equip.sub": "A preview of what's available. Once connected to live inventory, this section will reflect real-time status pulled straight from the yard.",
+      "equip.1.index": "01 / Excavation",
+      "equip.1.title": "Mini & Standard Excavators",
+      "equip.1.desc": "1.5–20 ton class, short-swing and standard configurations for tight or open sites.",
+      "equip.1.status": "Available — 12 units",
+      "equip.1.short": "Excavation",
+      "equip.2.index": "02 / Loading",
+      "equip.2.title": "Skid Steers & Loaders",
+      "equip.2.desc": "Wheeled and tracked options with attachment compatibility for grading, clearing, and material handling.",
+      "equip.2.status": "Limited — 3 units",
+      "equip.2.short": "Loading",
+      "equip.3.index": "03 / Compaction",
+      "equip.3.title": "Plate & Roller Compactors",
+      "equip.3.desc": "Reversible plates through ride-on rollers for asphalt, soil, and aggregate compaction.",
+      "equip.3.status": "Available — 9 units",
+      "equip.3.short": "Compaction",
+      "equip.4.index": "04 / Lifting",
+      "equip.4.title": "Aerial & Telehandlers",
+      "equip.4.desc": "Boom lifts, scissor lifts, and telehandlers rated for reach, height, and site terrain.",
+      "equip.4.status": "Booked — next available Thu",
+      "equip.4.short": "Lifting",
+      "equip.5.index": "05 / Earthmoving",
+      "equip.5.title": "Dozers & Graders",
+      "equip.5.desc": "Mid-size dozers and motor graders for site prep, grading, and large-footprint moves.",
+      "equip.5.status": "Available — 5 units",
+      "equip.6.index": "06 / Support",
+      "equip.6.title": "Generators & Site Power",
+      "equip.6.desc": "Towable and stationary generators, light towers, and site power distribution gear.",
+      "equip.6.status": "Available — 21 units",
+      "teaser.title": "Real-time inventory, on the way",
+      "teaser.desc": "We're connecting this catalog directly to our yard management system, so availability, location, and return dates will update automatically — no more calling to check if something's free.",
+      "teaser.tag": "IN DEVELOPMENT",
+      "how.eyebrow": "Process",
+      "how.title": "Renting equipment, start to finish",
+      "step.1.title": "Tell us the job",
+      "step.1.desc": "Send us the scope, site conditions, and timeline — we'll match equipment to the work.",
+      "step.2.title": "Get a quote",
+      "step.2.desc": "Transparent daily, weekly, and monthly rates with no hidden delivery surcharges.",
+      "step.3.title": "We deliver",
+      "step.3.desc": "Equipment arrives inspected, fueled, and ready to run — usually within 24–48 hours.",
+      "step.4.title": "We support the rental",
+      "step.4.desc": "On-call service and swap-out if anything goes down mid-job. No downtime billed to you.",
+      "trust.eyebrow": "Why Contractors Stick With Us",
+      "trust.title": "We treat your schedule like it's ours",
+      "trust.1.quote": "A skid steer went down on a Friday afternoon. They had a replacement on-site before we lost the day.",
+      "trust.1.name": "SITE FOREMAN — GRADING CONTRACTOR",
+      "trust.2.quote": "Straightforward pricing, no surprise fees on the invoice. That alone keeps us coming back.",
+      "trust.2.name": "PROJECT MANAGER — GENERAL CONTRACTOR",
+      "trust.3.quote": "Their fleet is newer and better maintained than what we used to own ourselves.",
+      "trust.3.name": "OWNER — EXCAVATION COMPANY",
+      "cta.title": "Get the right machine <span>on-site</span>, on time.",
+      "cta.desc": "Tell us what the job needs — we'll get back to you with availability and pricing within one business day.",
+      "cta.btn1": "Email the Rental Desk",
+      "cta.btn2": "Call (000) 000-0000",
+      "loc.eyebrow": "Our Locations",
+      "loc.title": "Near you, all across Slovenia",
+      "loc.emailLabel": "Email",
+      "loc.hoursLabel": "Working Hours",
+      "loc.addressLabel": "Address",
+      "loc.phoneLabel": "Phone",
+      "loc.pending": "TBD",
+      "footer.desc": "Heavy equipment rental for contractors who can't afford downtime. Regional fleet, same-day quotes, honest pricing.",
+      "footer.col1": "Fleet",
+      "footer.col2": "Company",
+      "footer.col3": "Contact",
+      "footer.hours": "Mon–Sat, 6.00–18.00",
+      "footer.copyright": "© 2026 Renting. Placeholder content — replace with your details.",
+      "footer.legal": "Terms · Privacy · Safety Data Sheets"
+    }
+  };
+
+  function applyLang(lang) {
+    if (!TRANSLATIONS[lang]) return;
+    var dict = TRANSLATIONS[lang];
+    document.documentElement.setAttribute('lang', lang);
+    if (dict['meta.title']) document.title = dict['meta.title'];
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n');
+      if (dict[key] !== undefined) el.textContent = dict[key];
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n-html');
+      if (dict[key] !== undefined) el.innerHTML = dict[key];
+    });
+    document.querySelectorAll('.lang-btn').forEach(function (btn) {
+      btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+    });
+    try { localStorage.setItem('renting-lang', lang); } catch (e) {}
+  }
+
+  document.querySelectorAll('.lang-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () { applyLang(btn.getAttribute('data-lang')); });
+  });
+
+  var savedLang = 'sl';
+  try { savedLang = localStorage.getItem('renting-lang') || 'sl'; } catch (e) {}
+  applyLang(savedLang);
+</script>
 
 </body>
 </html>
