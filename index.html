@@ -91,16 +91,24 @@
   }
   .logo{
     font-family:var(--font-display);
-    font-weight:700;
-    font-size:20px;
-    letter-spacing:0.02em;
+    font-size:26px;
     color:var(--paper-100);
     display:flex;
     align-items:center;
-    gap:10px;
+    gap:14px;
+  }
+  .logo-text-thin{
+    font-weight:400;
+    font-variant:small-caps;
+    letter-spacing:0.05em;
+    margin-right:3px;
+  }
+  .logo-text-bold{
+    font-weight:800;
+    letter-spacing:0.015em;
   }
   .logo-mark{
-    width:35px;height:20px;
+    width:44px;height:27px;
     flex-shrink:0;
     overflow:visible;
   }
@@ -598,18 +606,18 @@
 <body>
 
 <svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
-  <symbol id="renting-mark" viewBox="-2 -2 205 118">
+  <symbol id="renting-mark" viewBox="-2 -2 239 147">
     <g transform="translate(0,0) skewX(45)">
-      <rect x="7" y="8" width="80" height="26" fill="#ffffff"/>
-      <rect x="0" y="0" width="80" height="26" fill="var(--amber-500)"/>
+      <rect x="8" y="9" width="84" height="30" fill="#ffffff"/>
+      <rect x="0" y="0" width="84" height="30" fill="var(--amber-500)"/>
     </g>
-    <g transform="translate(40,40) skewX(45)">
-      <rect x="7" y="8" width="80" height="26" fill="#ffffff"/>
-      <rect x="0" y="0" width="80" height="26" fill="var(--amber-500)"/>
+    <g transform="translate(52,52) skewX(45)">
+      <rect x="8" y="9" width="84" height="30" fill="#ffffff"/>
+      <rect x="0" y="0" width="84" height="30" fill="var(--amber-500)"/>
     </g>
-    <g transform="translate(80,80) skewX(45)">
-      <rect x="7" y="8" width="80" height="26" fill="#ffffff"/>
-      <rect x="0" y="0" width="80" height="26" fill="var(--amber-500)"/>
+    <g transform="translate(104,104) skewX(45)">
+      <rect x="8" y="9" width="84" height="30" fill="#ffffff"/>
+      <rect x="0" y="0" width="84" height="30" fill="var(--amber-500)"/>
     </g>
   </symbol>
 </svg>
@@ -623,7 +631,7 @@
 
 <header>
   <nav>
-    <a href="#" class="logo"><svg class="logo-mark" aria-hidden="true"><use href="#renting-mark"></use></svg>RENTING</a>
+    <a href="#" class="logo"><svg class="logo-mark" aria-hidden="true"><use href="#renting-mark"></use></svg><span><span class="logo-text-thin">Skupina</span> <span class="logo-text-bold">RENTING</span></span></a>
     <ul class="nav-links">
       <li><a href="#equipment">Oprema</a></li>
       <li><a href="#how">Kako deluje</a></li>
