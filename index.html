@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bastion Equipment Rental — Težka mehanizacija, pripravljena, ko ste vi</title>
+<title>Renting — Težka mehanizacija, pripravljena, ko ste vi</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -13,7 +13,7 @@
     --steel-800:#20242a;
     --steel-700:#343a41;
     --concrete-500:#8a8f94;
-    --paper-100:#f3f1ec;
+    --paper-100:#ffffff;
     --amber-500:#e8a93b;
     --amber-600:#c98f27;
     --signal-red:#c7482f;
@@ -98,10 +98,9 @@
     gap:10px;
   }
   .logo-mark{
-    width:12px;height:12px;
-    background:var(--amber-500);
-    transform:rotate(45deg);
+    width:34px;height:25px;
     flex-shrink:0;
+    overflow:visible;
   }
   .nav-links{
     display:flex;
@@ -267,7 +266,7 @@
     position:relative;
     transition:background 0.2s ease;
   }
-  .equip-card:hover{background:#ece8de;}
+  .equip-card:hover{background:#f4f4f4;}
   .equip-index{
     font-family:var(--font-mono);
     font-size:12px;
@@ -542,7 +541,7 @@
     align-items:center;
     gap:8px;
   }
-  .footer-logo .logo-mark{width:10px;height:10px;}
+  .footer-logo .logo-mark{width:28px;height:20px;}
   .footer-desc{
     margin-top:14px;
     font-size:14px;
@@ -596,6 +595,23 @@
 </head>
 <body>
 
+<svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+  <symbol id="renting-mark" viewBox="-6 -4 152 106">
+    <g transform="translate(10,6) skewX(-18)">
+      <rect x="5" y="6" width="88" height="19" fill="#ffffff"/>
+      <rect x="0" y="0" width="88" height="19" fill="var(--amber-500)"/>
+    </g>
+    <g transform="translate(30,40) skewX(-18)">
+      <rect x="5" y="6" width="88" height="19" fill="#ffffff"/>
+      <rect x="0" y="0" width="88" height="19" fill="var(--amber-500)"/>
+    </g>
+    <g transform="translate(50,74) skewX(-18)">
+      <rect x="5" y="6" width="88" height="19" fill="#ffffff"/>
+      <rect x="0" y="0" width="88" height="19" fill="var(--amber-500)"/>
+    </g>
+  </symbol>
+</svg>
+
 <div class="topbar">
   <div class="wrap topbar-inner">
     <a href="mailto:info@renting.si">info@renting.si</a>
@@ -605,11 +621,11 @@
 
 <header>
   <nav>
-    <a href="#" class="logo"><span class="logo-mark"></span>BASTION</a>
+    <a href="#" class="logo"><svg class="logo-mark" aria-hidden="true"><use href="#renting-mark"></use></svg>RENTING</a>
     <ul class="nav-links">
       <li><a href="#equipment">Oprema</a></li>
       <li><a href="#how">Kako deluje</a></li>
-      <li><a href="#trust">Zakaj Bastion</a></li>
+      <li><a href="#trust">Zakaj Renting</a></li>
       <li><a href="#locations">Lokacije</a></li>
       <li><a href="#contact">Kontakt</a></li>
     </ul>
@@ -621,7 +637,7 @@
   <div class="wrap hero">
     <div class="hero-eyebrow">Sledenje voznemu parku v živo kmalu na voljo</div>
     <h1>Težka mehanizacija,<br>pripravljena, ko ste <span>vi</span>.</h1>
-    <p>Bastion oddaja bagre, nakladalnike, valjarje in gradbeno opremo izvajalcem po vsej regiji — z jasnim cenikom in opremo, ki deluje takoj, ko prispe.</p>
+    <p>Renting oddaja bagre, nakladalnike, valjarje in gradbeno opremo izvajalcem po vsej regiji — z jasnim cenikom in opremo, ki deluje takoj, ko prispe.</p>
     <div class="hero-actions">
       <a href="#contact" class="btn-primary">Zaprosite za ponudbo</a>
       <a href="#equipment" class="btn-secondary">Poglejte vozni park</a>
@@ -710,7 +726,7 @@
 <section id="how">
   <div class="wrap">
     <div class="section-eyebrow">Postopek</div>
-    <h2 class="section-title">Najem pri Bastionu, od začetka do konca</h2>
+    <h2 class="section-title">Najem pri Rentingu, od začetka do konca</h2>
 
     <div class="steps">
       <div class="step">
@@ -764,7 +780,7 @@
     <h2>Pravi stroj <span>na gradbišču</span>, pravočasno.</h2>
     <p>Povejte nam, kaj delo potrebuje — v enem delovnem dnevu vam sporočimo razpoložljivost in ceno.</p>
     <div class="cta-actions">
-      <a href="mailto:rentals@bastionequipment.example" class="btn-dark">Pišite oddelku za najem</a>
+      <a href="mailto:info@renting.si" class="btn-dark">Pišite oddelku za najem</a>
       <a href="tel:+10000000000" class="btn-outline-dark">Pokličite (000) 000-0000</a>
     </div>
   </div>
@@ -819,7 +835,7 @@
         <h3>Ljubljana - Rudnik</h3>
         <div class="location-detail">
           <span class="location-label">Naslov</span>
-          Dolenjska cesta 157, Ljubljana - Rudnik
+          Dolenjska cesta 157, Ljubljana
         </div>
         <div class="location-detail">
           <span class="location-label">Telefon</span>
@@ -851,7 +867,7 @@
   <div class="wrap">
     <div class="footer-grid">
       <div>
-        <div class="footer-logo"><span class="logo-mark"></span>BASTION</div>
+        <div class="footer-logo"><svg class="logo-mark" aria-hidden="true"><use href="#renting-mark"></use></svg>RENTING</div>
         <p class="footer-desc">Oddajanje težke gradbene opreme izvajalcem, ki si ne morejo privoščiti izpadov. Regionalni vozni park, ponudbe še isti dan, poštene cene.</p>
       </div>
       <div class="footer-col">
@@ -867,21 +883,21 @@
         <h5>Podjetje</h5>
         <ul>
           <li><a href="#how">Kako deluje</a></li>
-          <li><a href="#trust">Zakaj Bastion</a></li>
+          <li><a href="#trust">Zakaj Renting</a></li>
           <li><a href="#contact">Kontakt</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h5>Kontakt</h5>
         <ul>
-          <li><a href="mailto:rentals@bastionequipment.example">rentals@bastionequipment.example</a></li>
+          <li><a href="mailto:info@renting.si">info@renting.si</a></li>
           <li><a href="tel:+10000000000">(000) 000-0000</a></li>
           <li>Pon–Sob, 6.00–18.00</li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Bastion Equipment Rental. Vsebina je vzorčna — zamenjajte s svojimi podatki.</span>
+      <span>© 2026 Renting. Vsebina je vzorčna — zamenjajte s svojimi podatki.</span>
       <span>Pogoji · Zasebnost · Varnostni listi</span>
     </div>
   </div>
