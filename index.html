@@ -54,6 +54,23 @@
     background-size:28px 28px;
   }
 
+  /* ---------- Topbar ---------- */
+  .topbar{
+    background:var(--steel-800);
+    color:var(--concrete-500);
+    font-family:var(--font-mono);
+    font-size:12.5px;
+  }
+  .topbar-inner{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:9px 32px;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .topbar-inner a:hover{color:var(--amber-500);}
+
   /* ---------- Nav ---------- */
   header{
     position:sticky;
@@ -423,6 +440,76 @@
   }
   .btn-outline-dark:hover{background:rgba(0,0,0,0.05);}
 
+  /* ---------- Locations ---------- */
+  .quick-contact{
+    margin-top:40px;
+    background:var(--steel-900);
+    color:var(--paper-100);
+    border-left:3px solid var(--amber-500);
+    border-radius:2px;
+    padding:22px 28px;
+    display:flex;
+    gap:40px;
+    flex-wrap:wrap;
+    align-items:center;
+  }
+  .quick-contact-item{
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+  }
+  .quick-contact-label{
+    font-family:var(--font-mono);
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--amber-500);
+  }
+  .quick-contact-value{
+    font-size:15px;
+    font-weight:600;
+  }
+  .quick-contact-value a:hover{color:var(--amber-500);}
+
+  .locations-grid{
+    margin-top:40px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:1px;
+    background:rgba(0,0,0,0.08);
+    border:1px solid rgba(0,0,0,0.08);
+  }
+  .location-card{
+    background:var(--paper-100);
+    padding:30px 26px;
+  }
+  .location-card h3{
+    font-family:var(--font-display);
+    font-size:17px;
+    font-weight:600;
+    letter-spacing:0.01em;
+    text-transform:uppercase;
+    color:var(--steel-900);
+    margin-bottom:18px;
+  }
+  .location-detail{
+    margin-top:12px;
+    font-size:14px;
+    color:var(--steel-700);
+    line-height:1.5;
+  }
+  .location-detail:first-of-type{margin-top:0;}
+  .location-label{
+    display:block;
+    font-family:var(--font-mono);
+    font-size:11px;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    color:var(--amber-600);
+    margin-bottom:3px;
+  }
+  .location-detail a:hover{color:var(--amber-600);}
+
   /* ---------- Footer ---------- */
   footer{
     background:var(--steel-900);
@@ -480,11 +567,14 @@
     .steps{grid-template-columns:1fr;row-gap:28px;}
     .trust-grid{grid-template-columns:1fr;}
     .footer-grid{grid-template-columns:1fr 1fr;row-gap:32px;}
+    .locations-grid{grid-template-columns:1fr 1fr;}
   }
   @media (max-width:560px){
     .wrap{padding:0 20px;}
     .footer-grid{grid-template-columns:1fr;}
     .data-teaser{flex-direction:column;align-items:flex-start;}
+    .locations-grid{grid-template-columns:1fr;}
+    .topbar-inner{padding:9px 20px;justify-content:center;text-align:center;gap:6px 16px;}
   }
 
   @media (prefers-reduced-motion: reduce){
@@ -494,6 +584,13 @@
 </head>
 <body>
 
+<div class="topbar">
+  <div class="wrap topbar-inner">
+    <a href="mailto:info@renting.si">info@renting.si</a>
+    <span>Delovni čas: 7.00–15.00</span>
+  </div>
+</div>
+
 <header>
   <nav>
     <a href="#" class="logo"><span class="logo-mark"></span>BASTION</a>
@@ -501,6 +598,7 @@
       <li><a href="#equipment">Oprema</a></li>
       <li><a href="#how">Kako deluje</a></li>
       <li><a href="#trust">Zakaj Bastion</a></li>
+      <li><a href="#locations">Lokacije</a></li>
       <li><a href="#contact">Kontakt</a></li>
     </ul>
     <a href="#contact" class="nav-cta">Zaprosite za ponudbo</a>
@@ -656,6 +754,71 @@
     <div class="cta-actions">
       <a href="mailto:rentals@bastionequipment.example" class="btn-dark">Pišite oddelku za najem</a>
       <a href="tel:+10000000000" class="btn-outline-dark">Pokličite (000) 000-0000</a>
+    </div>
+  </div>
+</section>
+
+<section id="locations">
+  <div class="wrap">
+    <div class="section-eyebrow">Naše lokacije</div>
+    <h2 class="section-title">Blizu vas, po vsej Sloveniji</h2>
+
+    <div class="quick-contact">
+      <div class="quick-contact-item">
+        <span class="quick-contact-label">E-pošta</span>
+        <span class="quick-contact-value"><a href="mailto:info@renting.si">info@renting.si</a></span>
+      </div>
+      <div class="quick-contact-item">
+        <span class="quick-contact-label">Delovni čas</span>
+        <span class="quick-contact-value">7.00–15.00</span>
+      </div>
+    </div>
+
+    <div class="locations-grid">
+      <div class="location-card">
+        <h3>Koper</h3>
+        <div class="location-detail">
+          <span class="location-label">Naslov</span>
+          Ulica 15. maja 10, Koper
+        </div>
+        <div class="location-detail">
+          <span class="location-label">Telefon</span>
+          <a href="tel:+38656632460">05/663 24 60</a>
+        </div>
+      </div>
+      <div class="location-card">
+        <h3>Ljubljana - Zalog</h3>
+        <div class="location-detail">
+          <span class="location-label">Naslov</span>
+          V pripravi
+        </div>
+        <div class="location-detail">
+          <span class="location-label">Telefon</span>
+          <a href="tel:+38615308550">01/530 85 50</a>
+        </div>
+      </div>
+      <div class="location-card">
+        <h3>Ljubljana - Rudnik</h3>
+        <div class="location-detail">
+          <span class="location-label">Naslov</span>
+          Dolenjska cesta 157, Ljubljana - Rudnik
+        </div>
+        <div class="location-detail">
+          <span class="location-label">Telefon</span>
+          <a href="tel:+38612801650">01/280 16 50</a>
+        </div>
+      </div>
+      <div class="location-card">
+        <h3>Nova Gorica - Vrtojba</h3>
+        <div class="location-detail">
+          <span class="location-label">Naslov</span>
+          Polje 24, Šempeter pri Gorici
+        </div>
+        <div class="location-detail">
+          <span class="location-label">Telefon</span>
+          <a href="tel:+38653304530">05/330 45 30</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
