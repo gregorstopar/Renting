@@ -123,6 +123,7 @@ nav{
 }
 .nav-links{
   display:flex;
+  align-items:center;
   gap:28px;
   list-style:none;
 }
@@ -134,6 +135,90 @@ nav{
   transition:color 0.2s ease;
 }
 .nav-links a:hover, .nav-links a.active{color:var(--paper-100);}
+
+/* ---------- Oprema dropdown ---------- */
+.nav-dropdown{
+  position:relative;
+  padding-bottom:16px;
+  margin-bottom:-16px;
+}
+.nav-links a.nav-dropdown-trigger{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  color:var(--amber-500);
+  border-bottom:2px solid var(--amber-500);
+  padding-bottom:3px;
+}
+.nav-links a.nav-dropdown-trigger:hover{color:var(--amber-600);}
+.nav-caret{
+  width:6px;height:6px;
+  border-right:1.5px solid currentColor;
+  border-bottom:1.5px solid currentColor;
+  transform:rotate(45deg) translateY(-2px);
+  transition:transform 0.2s ease;
+  flex-shrink:0;
+}
+.nav-dropdown:hover .nav-caret,
+.nav-dropdown:focus-within .nav-caret{
+  transform:rotate(225deg) translateY(2px);
+}
+.nav-mega{
+  position:absolute;
+  top:100%;
+  left:0;
+  background:var(--steel-900);
+  border:1px solid rgba(255,255,255,0.1);
+  border-top:2px solid var(--amber-500);
+  padding:24px 28px;
+  display:flex;
+  gap:44px;
+  min-width:380px;
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(-6px);
+  transition:opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
+  z-index:60;
+}
+.nav-dropdown:hover .nav-mega,
+.nav-dropdown:focus-within .nav-mega{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+.nav-mega-col{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  min-width:150px;
+}
+.nav-mega-label{
+  display:block;
+  font-family:var(--font-mono);
+  font-size:11px;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--amber-500);
+  padding-bottom:10px;
+  margin-bottom:2px;
+  border-bottom:1px solid rgba(255,255,255,0.12);
+}
+.nav-mega-label-link{transition:color 0.2s ease;}
+.nav-mega-label-link:hover{color:var(--paper-100);}
+.nav-mega-col ul{
+  list-style:none;
+  display:flex;
+  flex-direction:column;
+  gap:11px;
+}
+.nav-mega-col ul a{
+  font-size:13.5px;
+  font-weight:400;
+  color:var(--concrete-500);
+  transition:color 0.2s ease;
+}
+.nav-mega-col ul a:hover{color:var(--paper-100);}
+
 .nav-cta{
   background:var(--amber-500);
   color:var(--steel-900);

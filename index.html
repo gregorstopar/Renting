@@ -46,7 +46,25 @@
   <nav>
     <a href="index.html" class="logo"><svg class="logo-mark" aria-hidden="true"><use href="#renting-mark"></use></svg><span data-i18n-html="logo.brand"><span class="logo-text-bold">RENT</span><span class="logo-text-regular">ING</span></span></a>
     <ul class="nav-links">
-      <li><a href="#equipment" data-i18n="nav.equipment">Oprema</a></li>
+      <li class="nav-dropdown">
+        <a href="#equipment" class="nav-dropdown-trigger" data-i18n="nav.equipment">Oprema<span class="nav-caret" aria-hidden="true"></span></a>
+        <div class="nav-mega">
+          <div class="nav-mega-col">
+            <div class="nav-mega-label" data-i18n="navmega.rentLabel">Najem</div>
+            <ul>
+              <li><a href="#equip-1" data-i18n="equip.1.short">Izkopi</a></li>
+              <li><a href="#equip-2" data-i18n="equip.2.short">Nakladanje</a></li>
+              <li><a href="#equip-3" data-i18n="equip.3.short">Zbijanje</a></li>
+              <li><a href="#equip-4" data-i18n="equip.4.short">Dviganje</a></li>
+              <li><a href="#equip-5" data-i18n="equip.5.short">Zemeljska dela</a></li>
+              <li><a href="#equip-6" data-i18n="equip.6.short">Podpora</a></li>
+            </ul>
+          </div>
+          <div class="nav-mega-col">
+            <a class="nav-mega-label nav-mega-label-link" href="#service-sales" data-i18n="navmega.salesLabel">Prodaja</a>
+          </div>
+        </div>
+      </li>
       <li><a href="reference.html" data-i18n="nav.references">Reference</a></li>
       <li><a href="partners.html" data-i18n="nav.partners">Partnerji</a></li>
       <li><a href="#about" data-i18n="nav.about">Kako deluje</a></li>
@@ -126,7 +144,7 @@
           <div class="service-step"><span class="service-step-num">04</span><span class="service-step-text" data-i18n="services.rent.step4">Stalna podpora</span></div>
         </div>
       </div>
-      <div class="service-card">
+      <div class="service-card" id="service-sales">
         <div class="service-card-title" data-i18n="services.sales.title">Prodaja</div>
         <p class="service-card-desc" data-i18n="services.sales.desc">Poleg najema ponujamo tudi prodajo gradbene opreme in mehanizacije. Zahvaljujoč široki mreži partnerjev lahko pripravimo prodajno ponudbo za praktično vsak tip opreme ali mehanizacije.</p>
       </div>
@@ -153,37 +171,37 @@
     </div>
 
     <div class="equip-grid">
-      <div class="equip-card">
+      <div class="equip-card" id="equip-1">
         <div class="equip-index" data-i18n="equip.1.index">01 / Izkopi</div>
         <h3 data-i18n="equip.1.title">Mini in standardni bagri</h3>
         <p data-i18n="equip.1.desc">Razred 1,5–20 ton, kratki in standardni radiji vrtenja za ozka ali odprta gradbišča.</p>
         <div class="status-row"><span class="status-dot available"></span><span data-i18n="equip.1.status">Na voljo — 12 enot</span></div>
       </div>
-      <div class="equip-card">
+      <div class="equip-card" id="equip-2">
         <div class="equip-index" data-i18n="equip.2.index">02 / Nakladanje</div>
         <h3 data-i18n="equip.2.title">Nakladalniki in kompaktni nakladalniki</h3>
         <p data-i18n="equip.2.desc">Kolesne in gosenične izvedbe z združljivostjo priključkov za planiranje, čiščenje in premikanje materiala.</p>
         <div class="status-row"><span class="status-dot limited"></span><span data-i18n="equip.2.status">Omejeno — 3 enote</span></div>
       </div>
-      <div class="equip-card">
+      <div class="equip-card" id="equip-3">
         <div class="equip-index" data-i18n="equip.3.index">03 / Zbijanje</div>
         <h3 data-i18n="equip.3.title">Vibracijske plošče in valjarji</h3>
         <p data-i18n="equip.3.desc">Od reverzibilnih plošč do sedežnih valjarjev za zbijanje asfalta, zemljine in agregatov.</p>
         <div class="status-row"><span class="status-dot available"></span><span data-i18n="equip.3.status">Na voljo — 9 enot</span></div>
       </div>
-      <div class="equip-card">
+      <div class="equip-card" id="equip-4">
         <div class="equip-index" data-i18n="equip.4.index">04 / Dviganje</div>
         <h3 data-i18n="equip.4.title">Dvižne ploščadi in teleskopski manipulatorji</h3>
         <p data-i18n="equip.4.desc">Škarjaste in členkaste dvižne ploščadi ter teleskopski manipulatorji za doseg, višino in teren gradbišča.</p>
         <div class="status-row"><span class="status-dot booked"></span><span data-i18n="equip.4.status">Zasedeno — naslednje na voljo v četrtek</span></div>
       </div>
-      <div class="equip-card">
+      <div class="equip-card" id="equip-5">
         <div class="equip-index" data-i18n="equip.5.index">05 / Zemeljska dela</div>
         <h3 data-i18n="equip.5.title">Buldožerji in grederji</h3>
         <p data-i18n="equip.5.desc">Srednje veliki buldožerji in cestni grederji za pripravo gradbišča, planiranje in obsežnejša zemeljska dela.</p>
         <div class="status-row"><span class="status-dot available"></span><span data-i18n="equip.5.status">Na voljo — 5 enot</span></div>
       </div>
-      <div class="equip-card">
+      <div class="equip-card" id="equip-6">
         <div class="equip-index" data-i18n="equip.6.index">06 / Podpora</div>
         <h3 data-i18n="equip.6.title">Generatorji in napajanje gradbišča</h3>
         <p data-i18n="equip.6.desc">Vlečni in stacionarni generatorji, svetlobni stolpi in oprema za distribucijo električne energije na gradbišču.</p>
@@ -539,10 +557,14 @@
       "equip.5.title": "Buldožerji in grederji",
       "equip.5.desc": "Srednje veliki buldožerji in cestni grederji za pripravo gradbišča, planiranje in obsežnejša zemeljska dela.",
       "equip.5.status": "Na voljo — 5 enot",
+      "equip.5.short": "Zemeljska dela",
       "equip.6.index": "06 / Podpora",
       "equip.6.title": "Generatorji in napajanje gradbišča",
       "equip.6.desc": "Vlečni in stacionarni generatorji, svetlobni stolpi in oprema za distribucijo električne energije na gradbišču.",
       "equip.6.status": "Na voljo — 21 enot",
+      "equip.6.short": "Podpora",
+      "navmega.rentLabel": "Najem",
+      "navmega.salesLabel": "Prodaja",
       "about.eyebrow": "O nas",
       "about.title": "Vaš zanesljiv partner od leta 1992",
       "about.p1": "Skupina Renting svojim strankam že od leta 1992 predstavlja zanesljivega partnerja pri najemu, prodaji in servisu gradbene opreme in mehanizacije.",
@@ -675,10 +697,14 @@
       "equip.5.title": "Dozers & Graders",
       "equip.5.desc": "Mid-size dozers and motor graders for site prep, grading, and large-footprint moves.",
       "equip.5.status": "Available — 5 units",
+      "equip.5.short": "Earthmoving",
       "equip.6.index": "06 / Support",
       "equip.6.title": "Generators & Site Power",
       "equip.6.desc": "Towable and stationary generators, light towers, and site power distribution gear.",
       "equip.6.status": "Available — 21 units",
+      "equip.6.short": "Support",
+      "navmega.rentLabel": "Rent",
+      "navmega.salesLabel": "Sales",
       "about.eyebrow": "About Us",
       "about.title": "Your reliable partner since 1992",
       "about.p1": "Skupina Renting has been a reliable partner to its clients since 1992 for the rental, sale, and servicing of construction equipment and machinery.",
