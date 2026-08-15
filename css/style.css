@@ -89,12 +89,15 @@ nav{
 }
 .logo-text-thin{
   font-weight:400;
-  font-variant:small-caps;
-  letter-spacing:0.05em;
+  letter-spacing:0.02em;
   margin-right:3px;
 }
 .logo-text-bold{
   font-weight:800;
+  letter-spacing:0.015em;
+}
+.logo-text-regular{
+  font-weight:400;
   letter-spacing:0.015em;
 }
 .logo-mark{
@@ -403,6 +406,25 @@ section{padding:96px 0;}
   padding:8px 14px;
   border-radius:2px;
   white-space:nowrap;
+}
+
+/* ---------- About us ---------- */
+.about-copy{
+  margin-top:32px;
+  max-width:760px;
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+.about-copy p{
+  font-size:16px;
+  line-height:1.7;
+  color:var(--steel-700);
+}
+.about-process{
+  margin-top:64px;
+  padding-top:48px;
+  border-top:1px solid rgba(0,0,0,0.08);
 }
 
 /* ---------- How it works ---------- */
