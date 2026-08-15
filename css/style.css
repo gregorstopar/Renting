@@ -585,6 +585,20 @@ section{padding:96px 0;}
   transform:translate(-50%,-50%);
   opacity:0.14;
 }
+.ref-photo.has-photo{
+  background-image:
+    radial-gradient(ellipse at center, rgba(0,0,0,0.1) 35%, rgba(0,0,0,0.85) 100%),
+    url('../images/renting.jpg');
+  background-size:cover;
+  background-position:center;
+  filter:grayscale(100%);
+  transition:filter 0.5s ease;
+}
+.ref-photo.has-photo .logo-mark{display:none;}
+.ref-card:hover .ref-photo.has-photo,
+.ref-card:focus-visible .ref-photo.has-photo{
+  filter:grayscale(0%);
+}
 .ref-photo-tag{
   position:absolute;
   left:14px;bottom:14px;
