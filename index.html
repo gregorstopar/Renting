@@ -30,8 +30,14 @@
 
 <div class="topbar">
   <div class="wrap topbar-inner">
-    <a href="mailto:info@renting.si">info@renting.si</a>
-    <span data-i18n="topbar.hours">Delovni čas: 7.00–15.00</span>
+    <a href="mailto:info@renting.si" class="topbar-email">info@renting.si</a>
+    <div class="topbar-phones">
+      <a href="tel:+38656632460"><span class="topbar-phone-branch">Koper</span>05/663 24 60</a>
+      <a href="tel:+38615308550"><span class="topbar-phone-branch">Zalog</span>01/530 85 50</a>
+      <a href="tel:+38612801650"><span class="topbar-phone-branch">Rudnik</span>01/280 16 50</a>
+      <a href="tel:+38653304530"><span class="topbar-phone-branch">Vrtojba</span>05/330 45 30</a>
+    </div>
+    <span class="topbar-hours" data-i18n="topbar.hours">Delovni čas: 7.00–15.00 (sobota 7.00–12.00)</span>
   </div>
 </div>
 
@@ -301,13 +307,64 @@
   </div>
 </section>
 
-<section id="contact" class="cta">
+<section id="contact">
   <div class="wrap">
-    <h2 data-i18n-html="cta.title">Pravi stroj <span>na gradbišču</span>, pravočasno.</h2>
-    <p data-i18n="cta.desc">Povejte nam, kaj delo potrebuje — v enem delovnem dnevu vam sporočimo razpoložljivost in ceno.</p>
-    <div class="cta-actions">
-      <a href="mailto:info@renting.si" class="btn-dark" data-i18n="cta.btn1">Pišite oddelku za najem</a>
-      <a href="tel:+10000000000" class="btn-outline-dark" data-i18n="cta.btn2">Pokličite (000) 000-0000</a>
+    <div class="section-eyebrow" data-i18n="contact.eyebrow">Kontakt</div>
+    <h2 class="section-title" data-i18n-html="cta.title">Pravi stroj <span>na gradbišču</span>, pravočasno.</h2>
+    <p class="section-sub" data-i18n="cta.desc">Povejte nam, kaj delo potrebuje — v enem delovnem dnevu vam sporočimo razpoložljivost in ceno.</p>
+
+    <div class="contact-grid">
+      <div class="contact-phones">
+        <div class="contact-phones-label" data-i18n="contact.phonesLabel">Pokličite izbrano enoto</div>
+        <ul class="contact-phone-list">
+          <li>
+            <span class="contact-phone-branch">Koper</span>
+            <a class="contact-phone-num" href="tel:+38656632460">05/663 24 60</a>
+          </li>
+          <li>
+            <span class="contact-phone-branch">Ljubljana - Zalog</span>
+            <a class="contact-phone-num" href="tel:+38615308550">01/530 85 50</a>
+          </li>
+          <li>
+            <span class="contact-phone-branch">Ljubljana - Rudnik</span>
+            <a class="contact-phone-num" href="tel:+38612801650">01/280 16 50</a>
+          </li>
+          <li>
+            <span class="contact-phone-branch">Nova Gorica - Vrtojba</span>
+            <a class="contact-phone-num" href="tel:+38653304530">05/330 45 30</a>
+          </li>
+        </ul>
+        <div class="contact-email">
+          <span data-i18n="loc.emailLabel">E-pošta</span>: <a href="mailto:info@renting.si">info@renting.si</a>
+        </div>
+      </div>
+
+      <form class="contact-form" id="contact-form">
+        <div class="form-field">
+          <label for="cf-name" data-i18n="contact.form.name">Ime in priimek</label>
+          <input type="text" id="cf-name" name="name" required data-i18n-placeholder="contact.form.namePh" placeholder="Janez Novak">
+        </div>
+        <div class="form-field">
+          <label for="cf-company" data-i18n="contact.form.company">Naziv podjetja</label>
+          <input type="text" id="cf-company" name="company" data-i18n-placeholder="contact.form.companyPh" placeholder="Naziv d.o.o.">
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="cf-phone" data-i18n="contact.form.phone">Telefon</label>
+            <input type="tel" id="cf-phone" name="phone" data-i18n-placeholder="contact.form.phonePh" placeholder="041 000 000">
+          </div>
+          <div class="form-field">
+            <label for="cf-email" data-i18n="contact.form.email">E-pošta</label>
+            <input type="email" id="cf-email" name="email" required data-i18n-placeholder="contact.form.emailPh" placeholder="ime@podjetje.si">
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="cf-message" data-i18n="contact.form.message">Sporočilo</label>
+          <textarea id="cf-message" name="message" rows="5" required data-i18n-placeholder="contact.form.messagePh" placeholder="Opišite, kaj potrebujete za vaš projekt …"></textarea>
+        </div>
+        <button type="submit" class="btn-primary" data-i18n="contact.form.submit">Pošlji povpraševanje</button>
+        <p class="contact-form-note" data-i18n="contact.form.note">Ob oddaji se odpre vaš e-poštni odjemalec s pripravljenim sporočilom.</p>
+      </form>
     </div>
   </div>
 </section>
@@ -324,7 +381,7 @@
       </div>
       <div class="quick-contact-item">
         <span class="quick-contact-label" data-i18n="loc.hoursLabel">Delovni čas</span>
-        <span class="quick-contact-value">7.00–15.00</span>
+        <span class="quick-contact-value" data-i18n="loc.hoursValue">7.00–15.00 (sobota 7.00–12.00)</span>
       </div>
     </div>
 
@@ -434,7 +491,7 @@
   window.TRANSLATIONS = {
     sl: {
       "meta.title": "Renting — Težka mehanizacija, pripravljena, ko ste vi",
-      "topbar.hours": "Delovni čas: 7.00–15.00",
+      "topbar.hours": "Delovni čas: 7.00–15.00 (sobota 7.00–12.00)",
       "logo.brand": "<span class=\"logo-text-thin\">Skupina</span> <span class=\"logo-text-bold\">RENT</span><span class=\"logo-text-regular\">ING</span>",
       "nav.equipment": "Oprema",
       "nav.references": "Reference",
@@ -536,12 +593,25 @@
       "partner.4.short": "Prevoz opreme po vsej Sloveniji",
       "cta.title": "Pravi stroj <span>na gradbišču</span>, pravočasno.",
       "cta.desc": "Povejte nam, kaj delo potrebuje — v enem delovnem dnevu vam sporočimo razpoložljivost in ceno.",
-      "cta.btn1": "Pišite oddelku za najem",
-      "cta.btn2": "Pokličite (000) 000-0000",
+      "contact.eyebrow": "Kontakt",
+      "contact.phonesLabel": "Pokličite izbrano enoto",
+      "contact.form.name": "Ime in priimek",
+      "contact.form.namePh": "Janez Novak",
+      "contact.form.company": "Naziv podjetja",
+      "contact.form.companyPh": "Naziv d.o.o.",
+      "contact.form.phone": "Telefon",
+      "contact.form.phonePh": "041 000 000",
+      "contact.form.email": "E-pošta",
+      "contact.form.emailPh": "ime@podjetje.si",
+      "contact.form.message": "Sporočilo",
+      "contact.form.messagePh": "Opišite, kaj potrebujete za vaš projekt …",
+      "contact.form.submit": "Pošlji povpraševanje",
+      "contact.form.note": "Ob oddaji se odpre vaš e-poštni odjemalec s pripravljenim sporočilom.",
       "loc.eyebrow": "Naše lokacije",
       "loc.title": "Blizu vas, po vsej Sloveniji",
       "loc.emailLabel": "E-pošta",
       "loc.hoursLabel": "Delovni čas",
+      "loc.hoursValue": "7.00–15.00 (sobota 7.00–12.00)",
       "loc.addressLabel": "Naslov",
       "loc.phoneLabel": "Telefon",
       "loc.pending": "V pripravi",
@@ -555,7 +625,7 @@
     },
     en: {
       "meta.title": "Renting — Heavy Machinery, Ready When You Are",
-      "topbar.hours": "Working hours: 7.00–15.00",
+      "topbar.hours": "Working hours: 7.00–15.00 (Saturdays 7.00–12.00)",
       "logo.brand": "<span class=\"logo-text-thin\">Skupina</span> <span class=\"logo-text-bold\">RENT</span><span class=\"logo-text-regular\">ING</span>",
       "nav.equipment": "Equipment",
       "nav.references": "References",
@@ -657,12 +727,25 @@
       "partner.4.short": "Equipment transport across Slovenia",
       "cta.title": "Get the right machine <span>on-site</span>, on time.",
       "cta.desc": "Tell us what the job needs — we'll get back to you with availability and pricing within one business day.",
-      "cta.btn1": "Email the Rental Desk",
-      "cta.btn2": "Call (000) 000-0000",
+      "contact.eyebrow": "Contact",
+      "contact.phonesLabel": "Call your nearest branch",
+      "contact.form.name": "Full Name",
+      "contact.form.namePh": "John Smith",
+      "contact.form.company": "Company Name",
+      "contact.form.companyPh": "Company Ltd.",
+      "contact.form.phone": "Phone Number",
+      "contact.form.phonePh": "041 000 000",
+      "contact.form.email": "Email",
+      "contact.form.emailPh": "you@company.com",
+      "contact.form.message": "Message",
+      "contact.form.messagePh": "Describe what your project needs …",
+      "contact.form.submit": "Send Inquiry",
+      "contact.form.note": "Submitting this opens your email client with the message ready to send.",
       "loc.eyebrow": "Our Locations",
       "loc.title": "Near you, all across Slovenia",
       "loc.emailLabel": "Email",
       "loc.hoursLabel": "Working Hours",
+      "loc.hoursValue": "7.00–15.00 (Saturdays 7.00–12.00)",
       "loc.addressLabel": "Address",
       "loc.phoneLabel": "Phone",
       "loc.pending": "TBD",
@@ -677,6 +760,7 @@
   };
 </script>
 <script src="js/i18n.js"></script>
+<script src="js/contact-form.js"></script>
 
 </body>
 </html>
