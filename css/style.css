@@ -78,10 +78,12 @@ a{color:inherit;text-decoration:none;}
 .topbar-phone-branch::after{content:': ';}
 
 /* ---------- Nav ---------- */
-header{
+.site-top{
   position:sticky;
   top:0;
   z-index:50;
+}
+header{
   background:var(--steel-900);
   border-bottom:1px solid rgba(255,255,255,0.08);
 }
@@ -435,44 +437,35 @@ section{padding:96px 0;}
   line-height:1.7;
   color:var(--steel-700);
 }
-.about-process{
-  margin-top:64px;
-  padding-top:48px;
-  border-top:1px solid rgba(0,0,0,0.08);
-}
 
 /* ---------- Services (Rent / Sales / Service / Engineering) ---------- */
-.services-panel{
-  margin-top:28px;
+.services{
   background:var(--steel-900);
-  border-radius:2px;
-  padding:8px;
+  color:var(--paper-100);
 }
 .service-grid{
+  margin-top:56px;
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:1px;
-  background:rgba(255,255,255,0.1);
+  gap:40px;
 }
 .service-card{
-  background:var(--steel-900);
-  padding:32px 28px 40px;
+  border-left:2px solid var(--amber-500);
+  padding-left:22px;
 }
 .service-card-title{
-  display:inline-block;
+  display:block;
   font-family:var(--font-display);
-  font-size:21px;
+  font-size:20px;
   font-weight:700;
   text-transform:uppercase;
   letter-spacing:0.02em;
   color:var(--amber-500);
-  padding-bottom:14px;
-  margin-bottom:18px;
-  border-bottom:2px solid var(--amber-500);
+  margin-bottom:16px;
 }
 .service-card-desc{
-  font-size:14.5px;
-  color:var(--concrete-500);
+  font-size:15px;
+  color:var(--paper-100);
   line-height:1.65;
 }
 .service-steps{
