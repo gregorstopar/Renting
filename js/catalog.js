@@ -12,11 +12,43 @@
   function hintText(lang) {
     return lang === 'en' ? 'Hover a category to see its subcategories' : 'Zapeljite čez kategorijo za podkategorije';
   }
-  function subLabel(lang) {
-    return lang === 'en' ? 'Subcategories' : 'Podkategorije';
-  }
   function backLabel(lang) {
     return lang === 'en' ? '← Back to categories' : '← Nazaj na kategorije';
+  }
+  function moreLabel(lang) {
+    return lang === 'en' ? 'and more' : 'in več';
+  }
+
+  var CARD_PREVIEW_COUNT = 2;
+
+  function buildCategoryCard(cat, lang, href) {
+    var a = document.createElement('a');
+    a.className = 'cat-card';
+    a.href = href;
+
+    var head = document.createElement('div');
+    head.className = 'cat-card-head';
+    var h3 = document.createElement('h3');
+    h3.textContent = catName(cat, lang);
+    head.appendChild(h3);
+    a.appendChild(head);
+
+    var ul = document.createElement('ul');
+    ul.className = 'cat-card-subs';
+    cat.subcategories.slice(0, CARD_PREVIEW_COUNT).forEach(function (sub) {
+      var li = document.createElement('li');
+      li.textContent = subName(sub, lang);
+      ul.appendChild(li);
+    });
+    if (cat.subcategories.length > CARD_PREVIEW_COUNT) {
+      var more = document.createElement('li');
+      more.className = 'cat-card-more';
+      more.textContent = moreLabel(lang);
+      ul.appendChild(more);
+    }
+    a.appendChild(ul);
+
+    return a;
   }
 
   function getCategoryForSub(subCode) {
@@ -90,19 +122,9 @@
 
   function renderCategoryGrid(container, lang) {
     var grid = document.createElement('div');
-    grid.className = 'najem-category-grid';
+    grid.className = 'cat-grid';
     window.CATEGORIES.forEach(function (cat) {
-      var a = document.createElement('a');
-      a.className = 'najem-category-card';
-      a.href = '#kat-' + cat.code;
-      var h3 = document.createElement('h3');
-      h3.textContent = catName(cat, lang);
-      a.appendChild(h3);
-      var cta = document.createElement('span');
-      cta.className = 'najem-category-cta';
-      cta.textContent = subLabel(lang);
-      a.appendChild(cta);
-      grid.appendChild(a);
+      grid.appendChild(buildCategoryCard(cat, lang, '#kat-' + cat.code));
     });
     container.appendChild(grid);
   }
@@ -179,24 +201,7 @@
     if (!container || !window.CATEGORIES) return;
     container.innerHTML = '';
     window.CATEGORIES.forEach(function (cat) {
-      var a = document.createElement('a');
-      a.className = 'home-cat-card';
-      a.href = 'najem.html#kat-' + cat.code;
-
-      var h3 = document.createElement('h3');
-      h3.textContent = catName(cat, lang);
-      a.appendChild(h3);
-
-      var ul = document.createElement('ul');
-      ul.className = 'home-cat-list';
-      cat.subcategories.forEach(function (sub) {
-        var li = document.createElement('li');
-        li.textContent = subName(sub, lang);
-        ul.appendChild(li);
-      });
-      a.appendChild(ul);
-
-      container.appendChild(a);
+      container.appendChild(buildCategoryCard(cat, lang, 'najem.html#kat-' + cat.code));
     });
   }
 

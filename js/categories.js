@@ -670,19 +670,5 @@ window.CATEGORIES = [
         "it": "Soffiatore - aspiratore per foglie"
       }
     ]
-  },
-  {
-    "code": "18",
-    "sl": "Oprema za šport in prosti čas",
-    "en": "Sports and leisure equipment",
-    "it": "Attrezzatura per sport e tempo libero",
-    "subcategories": [
-      {
-        "code": "1801",
-        "sl": "Plovila",
-        "en": "Vessels/boats",
-        "it": "Imbarcazioni"
-      }
-    ]
   }
 ];

@@ -493,38 +493,68 @@ section{padding:96px 0;}
   color:var(--concrete-500);
 }
 
-/* ---------- Najem catalog page ---------- */
-.najem-category-grid{
+/* ---------- Category cards (home "Ponudba najema" + Najem page grid) ---------- */
+.cat-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:1px;
-  background:rgba(0,0,0,0.08);
-  border:1px solid rgba(0,0,0,0.08);
+  gap:20px;
 }
-.najem-category-card{
-  background:var(--paper-100);
-  padding:32px 30px;
+.cat-card{
   display:flex;
   flex-direction:column;
-  gap:20px;
-  justify-content:space-between;
-  min-height:120px;
-  transition:background 0.2s ease;
+  border:1px solid rgba(0,0,0,0.08);
+  border-radius:2px;
+  overflow:hidden;
+  background:var(--paper-100);
+  transition:box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
 }
-.najem-category-card:hover{background:#f4f4f4;}
-.najem-category-card h3{
+.cat-card:hover{
+  box-shadow:0 12px 26px rgba(21,24,27,0.14);
+  transform:translateY(-2px);
+  border-color:var(--amber-500);
+}
+.cat-card-head{
+  background:var(--steel-900);
+  color:var(--paper-100);
+  padding:20px 24px;
+}
+.cat-card-head h3{
   font-family:var(--font-display);
-  font-size:19px;
+  font-size:18px;
   font-weight:600;
   text-transform:uppercase;
-  line-height:1.2;
+  line-height:1.25;
 }
-.najem-category-cta{
-  font-family:var(--font-mono);
-  font-size:12px;
-  letter-spacing:0.04em;
-  color:var(--amber-600);
+.cat-card-subs{
+  list-style:none;
+  background:var(--paper-100);
+  padding:18px 24px 22px;
+  display:flex;
+  flex-direction:column;
+  gap:9px;
+  flex:1;
 }
+.cat-card-subs li{
+  position:relative;
+  padding-left:14px;
+  font-size:13.5px;
+  color:var(--steel-700);
+}
+.cat-card-subs li::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:7px;
+  width:5px;height:5px;
+  background:var(--amber-500);
+}
+.cat-card-more{
+  font-style:italic;
+  color:var(--amber-600) !important;
+}
+.cat-card-more::before{display:none;}
+
+/* ---------- Najem catalog page (subcategory detail view) ---------- */
 .najem-back{
   display:inline-block;
   font-family:var(--font-mono);
@@ -558,48 +588,6 @@ section{padding:96px 0;}
 }
 .subcategory-chip:hover{border-color:var(--amber-500);background:#f4f4f4;}
 .subcategory-chip.active{border-color:var(--amber-500);background:#fdf3e0;}
-
-/* ---------- Home "Ponudba" category squares ---------- */
-.home-cat-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:1px;
-  background:rgba(0,0,0,0.08);
-  border:1px solid rgba(0,0,0,0.08);
-}
-.home-cat-card{
-  background:var(--paper-100);
-  padding:32px 30px;
-  transition:background 0.2s ease;
-}
-.home-cat-card:hover{background:#f4f4f4;}
-.home-cat-card h3{
-  font-family:var(--font-display);
-  font-size:19px;
-  font-weight:600;
-  text-transform:uppercase;
-  margin-bottom:16px;
-}
-.home-cat-list{
-  list-style:none;
-  display:flex;
-  flex-direction:column;
-  gap:7px;
-}
-.home-cat-list li{
-  position:relative;
-  padding-left:14px;
-  font-size:13.5px;
-  color:var(--steel-700);
-}
-.home-cat-list li::before{
-  content:"";
-  position:absolute;
-  left:0;
-  top:8px;
-  width:5px;height:5px;
-  background:var(--amber-500);
-}
 
 /* ---------- About us ---------- */
 .about-copy{
@@ -1134,6 +1122,7 @@ footer{
   .nav-links{display:none;}
   .stat-strip{grid-template-columns:repeat(2,1fr);row-gap:28px;}
   .service-grid{grid-template-columns:1fr;}
+  .cat-grid{grid-template-columns:1fr;}
   .trust-grid{grid-template-columns:1fr;}
   .footer-grid{grid-template-columns:1fr 1fr;row-gap:32px;}
   .locations-grid{grid-template-columns:1fr 1fr;}
