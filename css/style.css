@@ -167,12 +167,14 @@ nav{
   position:absolute;
   top:100%;
   left:0;
-  background:var(--steel-900);
-  border:1px solid rgba(255,255,255,0.1);
-  border-top:2px solid var(--amber-500);
-  padding:24px 28px;
+  background:var(--paper-100);
+  color:var(--steel-900);
+  border:1px solid rgba(21,24,27,0.1);
+  border-top:3px solid var(--amber-500);
+  box-shadow:0 18px 36px rgba(21,24,27,0.18);
+  padding:28px 32px;
   display:flex;
-  gap:44px;
+  gap:40px;
   min-width:380px;
   opacity:0;
   visibility:hidden;
@@ -198,13 +200,13 @@ nav{
   font-size:11px;
   letter-spacing:0.08em;
   text-transform:uppercase;
-  color:var(--amber-500);
+  color:var(--amber-600);
   padding-bottom:10px;
   margin-bottom:2px;
-  border-bottom:1px solid rgba(255,255,255,0.12);
+  border-bottom:1px solid rgba(21,24,27,0.1);
 }
 .nav-mega-label-link{transition:color 0.2s ease;}
-.nav-mega-label-link:hover{color:var(--paper-100);}
+.nav-mega-label-link:hover{color:var(--steel-900);}
 .nav-mega-col ul{
   list-style:none;
   display:flex;
@@ -214,38 +216,36 @@ nav{
 .nav-mega-col ul a{
   font-size:13.5px;
   font-weight:400;
-  color:var(--concrete-500);
+  color:var(--steel-700);
   transition:color 0.2s ease;
 }
-.nav-mega-col ul a:hover{color:var(--paper-100);}
+.nav-mega-col ul a:hover{color:var(--steel-900);}
 
 /* ---------- Ponudba mega menu (Najem catalog + flyout) ---------- */
 .nav-mega-catalog{
   gap:0;
-  min-width:660px;
+  min-width:600px;
   align-items:flex-start;
 }
 .nav-mega-catalog .nav-mega-najem{
-  padding-right:28px;
-  min-width:260px;
+  padding-right:32px;
+  min-width:250px;
 }
 .nav-mega-catalog .nav-cat-list{
-  display:block;
-  columns:2;
-  column-gap:22px;
-  width:280px;
-  max-height:340px;
-  overflow-y:auto;
+  display:flex;
+  flex-direction:column;
+  gap:9px;
+  width:250px;
 }
-.nav-mega-catalog .nav-cat-list li{break-inside:avoid;margin-bottom:11px;}
+.nav-mega-catalog .nav-cat-list a:hover{color:var(--amber-600);}
 .nav-mega-catalog .nav-mega-sales{
-  padding-left:28px;
-  border-left:1px solid rgba(255,255,255,0.12);
+  padding-left:32px;
+  border-left:1px solid rgba(21,24,27,0.1);
   min-width:150px;
 }
 .nav-mega-flyout{
-  padding:0 28px;
-  border-left:1px solid rgba(255,255,255,0.12);
+  padding:0 32px;
+  border-left:1px solid rgba(21,24,27,0.1);
   min-width:230px;
   max-width:260px;
   align-self:stretch;
@@ -255,7 +255,7 @@ nav{
 .nav-mega-flyout-hint{
   font-size:12.5px;
   font-style:italic;
-  color:var(--concrete-500);
+  color:var(--steel-700);
   max-width:200px;
   margin-top:2px;
 }
@@ -265,26 +265,24 @@ nav{
   font-size:11px;
   letter-spacing:0.08em;
   text-transform:uppercase;
-  color:var(--amber-500);
+  color:var(--amber-600);
   padding-bottom:10px;
   margin-bottom:2px;
-  border-bottom:1px solid rgba(255,255,255,0.12);
+  border-bottom:1px solid rgba(21,24,27,0.1);
 }
 .nav-mega-flyout ul{
   list-style:none;
   display:flex;
   flex-direction:column;
   gap:9px;
-  max-height:300px;
-  overflow-y:auto;
 }
 .nav-mega-flyout ul a{
   font-size:13px;
   font-weight:400;
-  color:var(--concrete-500);
+  color:var(--steel-700);
   transition:color 0.2s ease;
 }
-.nav-mega-flyout ul a:hover{color:var(--paper-100);}
+.nav-mega-flyout ul a:hover{color:var(--steel-900);}
 
 .nav-cta{
   background:var(--amber-500);
@@ -496,16 +494,49 @@ section{padding:96px 0;}
 }
 
 /* ---------- Najem catalog page ---------- */
-.category-block{
-  padding:40px 0;
-  border-bottom:1px solid rgba(0,0,0,0.08);
-  scroll-margin-top:110px;
+.najem-category-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;
+  background:rgba(0,0,0,0.08);
+  border:1px solid rgba(0,0,0,0.08);
 }
-.category-block:first-child{padding-top:0;}
-.category-block:last-child{border-bottom:none;}
+.najem-category-card{
+  background:var(--paper-100);
+  padding:32px 30px;
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+  justify-content:space-between;
+  min-height:120px;
+  transition:background 0.2s ease;
+}
+.najem-category-card:hover{background:#f4f4f4;}
+.najem-category-card h3{
+  font-family:var(--font-display);
+  font-size:19px;
+  font-weight:600;
+  text-transform:uppercase;
+  line-height:1.2;
+}
+.najem-category-cta{
+  font-family:var(--font-mono);
+  font-size:12px;
+  letter-spacing:0.04em;
+  color:var(--amber-600);
+}
+.najem-back{
+  display:inline-block;
+  font-family:var(--font-mono);
+  font-size:13px;
+  color:var(--steel-700);
+  margin-bottom:28px;
+  transition:color 0.2s ease;
+}
+.najem-back:hover{color:var(--amber-600);}
 .category-title{
   font-family:var(--font-display);
-  font-size:22px;
+  font-size:26px;
   font-weight:600;
   text-transform:uppercase;
   margin-bottom:24px;
@@ -526,6 +557,49 @@ section{padding:96px 0;}
   transition:border-color 0.2s ease, background 0.2s ease;
 }
 .subcategory-chip:hover{border-color:var(--amber-500);background:#f4f4f4;}
+.subcategory-chip.active{border-color:var(--amber-500);background:#fdf3e0;}
+
+/* ---------- Home "Ponudba" category squares ---------- */
+.home-cat-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;
+  background:rgba(0,0,0,0.08);
+  border:1px solid rgba(0,0,0,0.08);
+}
+.home-cat-card{
+  background:var(--paper-100);
+  padding:32px 30px;
+  transition:background 0.2s ease;
+}
+.home-cat-card:hover{background:#f4f4f4;}
+.home-cat-card h3{
+  font-family:var(--font-display);
+  font-size:19px;
+  font-weight:600;
+  text-transform:uppercase;
+  margin-bottom:16px;
+}
+.home-cat-list{
+  list-style:none;
+  display:flex;
+  flex-direction:column;
+  gap:7px;
+}
+.home-cat-list li{
+  position:relative;
+  padding-left:14px;
+  font-size:13.5px;
+  color:var(--steel-700);
+}
+.home-cat-list li::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:8px;
+  width:5px;height:5px;
+  background:var(--amber-500);
+}
 
 /* ---------- About us ---------- */
 .about-copy{
