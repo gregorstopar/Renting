@@ -493,6 +493,16 @@ section{padding:96px 0;}
   color:var(--concrete-500);
 }
 
+/* ---------- Najem page band ---------- */
+.najem-band{
+  background:var(--amber-500);
+  padding:16px 0;
+}
+.najem-band .section-eyebrow{
+  color:var(--steel-900);
+  margin-bottom:0;
+}
+
 /* ---------- Category cards (home "Ponudba najema" + Najem page grid) ---------- */
 .cat-grid{
   display:grid;
