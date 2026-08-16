@@ -554,6 +554,19 @@ section{padding:96px 0;}
 }
 .cat-card-more::before{display:none;}
 
+/* Najem page grid: flipped tones — light head, dark subcategory body */
+#najem-categories .cat-card-head{
+  background:var(--paper-100);
+  color:var(--steel-900);
+  border-bottom:1px solid rgba(0,0,0,0.08);
+}
+#najem-categories .cat-card-subs{
+  background:var(--steel-900);
+  color:var(--paper-100);
+}
+#najem-categories .cat-card-subs li{color:var(--concrete-500);}
+#najem-categories .cat-card-more{color:var(--amber-500) !important;}
+
 /* ---------- Najem catalog page (subcategory detail view) ---------- */
 .najem-back{
   display:inline-block;
