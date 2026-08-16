@@ -47,20 +47,14 @@
     <a href="index.html" class="logo"><svg class="logo-mark" aria-hidden="true"><use href="#renting-mark"></use></svg><span data-i18n-html="logo.brand"><span class="logo-text-bold">RENT</span><span class="logo-text-regular">ING</span></span></a>
     <ul class="nav-links">
       <li class="nav-dropdown">
-        <a href="#equipment" class="nav-dropdown-trigger" data-i18n="nav.equipment">Oprema<span class="nav-caret" aria-hidden="true"></span></a>
-        <div class="nav-mega">
-          <div class="nav-mega-col">
-            <div class="nav-mega-label" data-i18n="navmega.rentLabel">Najem</div>
-            <ul>
-              <li><a href="#equip-1" data-i18n="equip.1.short">Izkopi</a></li>
-              <li><a href="#equip-2" data-i18n="equip.2.short">Nakladanje</a></li>
-              <li><a href="#equip-3" data-i18n="equip.3.short">Zbijanje</a></li>
-              <li><a href="#equip-4" data-i18n="equip.4.short">Dviganje</a></li>
-              <li><a href="#equip-5" data-i18n="equip.5.short">Zemeljska dela</a></li>
-              <li><a href="#equip-6" data-i18n="equip.6.short">Podpora</a></li>
-            </ul>
+        <a href="najem.html" class="nav-dropdown-trigger" data-i18n="nav.offer">Ponudba<span class="nav-caret" aria-hidden="true"></span></a>
+        <div class="nav-mega nav-mega-catalog">
+          <div class="nav-mega-col nav-mega-najem">
+            <a class="nav-mega-label nav-mega-label-link" href="najem.html" data-i18n="navmega.rentLabel">Najem</a>
+            <ul class="nav-cat-list"></ul>
           </div>
-          <div class="nav-mega-col">
+          <div class="nav-mega-flyout"></div>
+          <div class="nav-mega-col nav-mega-sales">
             <a class="nav-mega-label nav-mega-label-link" href="#service-sales" data-i18n="navmega.salesLabel">Prodaja</a>
           </div>
         </div>
@@ -92,7 +86,7 @@
     <p data-i18n="hero.desc">Renting oddaja bagre, nakladalnike, valjarje in gradbeno opremo izvajalcem po vsej regiji — z jasnim cenikom in opremo, ki deluje takoj, ko prispe.</p>
     <div class="hero-actions">
       <a href="#contact" class="btn-primary" data-i18n="nav.cta">Zaprosite za ponudbo</a>
-      <a href="#equipment" class="btn-secondary" data-i18n="hero.ctaSecondary">Poglejte vozni park</a>
+      <a href="najem.html" class="btn-secondary" data-i18n="hero.ctaSecondary">Poglejte ponudbo najema</a>
     </div>
 
     <div class="stat-strip">
@@ -155,57 +149,6 @@
       <div class="service-card">
         <div class="service-card-title" data-i18n="services.engineering.title">Inženiring</div>
         <p class="service-card-desc" data-i18n="services.engineering.desc">Po dogovoru nudimo tudi inženirske in izobraževalne storitve za zahtevnejšo opremo in mehanizacijo.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="equipment">
-  <div class="wrap">
-    <div class="equip-head">
-      <div>
-        <div class="section-eyebrow" data-i18n="equip.eyebrow">Najem opreme</div>
-        <h2 class="section-title" data-i18n="equip.title">Zgrajeno za gradbišče, ne za razstavni salon</h2>
-      </div>
-      <p class="section-sub" data-i18n="equip.sub">Predogled trenutno razpoložljive opreme. Ko bo ta razdelek povezan z živo zalogo, bo prikazoval stanje v realnem času neposredno iz dvorišča.</p>
-    </div>
-
-    <div class="equip-grid">
-      <div class="equip-card" id="equip-1">
-        <div class="equip-index" data-i18n="equip.1.index">01 / Izkopi</div>
-        <h3 data-i18n="equip.1.title">Mini in standardni bagri</h3>
-        <p data-i18n="equip.1.desc">Razred 1,5–20 ton, kratki in standardni radiji vrtenja za ozka ali odprta gradbišča.</p>
-        <div class="status-row"><span class="status-dot available"></span><span data-i18n="equip.1.status">Na voljo — 12 enot</span></div>
-      </div>
-      <div class="equip-card" id="equip-2">
-        <div class="equip-index" data-i18n="equip.2.index">02 / Nakladanje</div>
-        <h3 data-i18n="equip.2.title">Nakladalniki in kompaktni nakladalniki</h3>
-        <p data-i18n="equip.2.desc">Kolesne in gosenične izvedbe z združljivostjo priključkov za planiranje, čiščenje in premikanje materiala.</p>
-        <div class="status-row"><span class="status-dot limited"></span><span data-i18n="equip.2.status">Omejeno — 3 enote</span></div>
-      </div>
-      <div class="equip-card" id="equip-3">
-        <div class="equip-index" data-i18n="equip.3.index">03 / Zbijanje</div>
-        <h3 data-i18n="equip.3.title">Vibracijske plošče in valjarji</h3>
-        <p data-i18n="equip.3.desc">Od reverzibilnih plošč do sedežnih valjarjev za zbijanje asfalta, zemljine in agregatov.</p>
-        <div class="status-row"><span class="status-dot available"></span><span data-i18n="equip.3.status">Na voljo — 9 enot</span></div>
-      </div>
-      <div class="equip-card" id="equip-4">
-        <div class="equip-index" data-i18n="equip.4.index">04 / Dviganje</div>
-        <h3 data-i18n="equip.4.title">Dvižne ploščadi in teleskopski manipulatorji</h3>
-        <p data-i18n="equip.4.desc">Škarjaste in členkaste dvižne ploščadi ter teleskopski manipulatorji za doseg, višino in teren gradbišča.</p>
-        <div class="status-row"><span class="status-dot booked"></span><span data-i18n="equip.4.status">Zasedeno — naslednje na voljo v četrtek</span></div>
-      </div>
-      <div class="equip-card" id="equip-5">
-        <div class="equip-index" data-i18n="equip.5.index">05 / Zemeljska dela</div>
-        <h3 data-i18n="equip.5.title">Buldožerji in grederji</h3>
-        <p data-i18n="equip.5.desc">Srednje veliki buldožerji in cestni grederji za pripravo gradbišča, planiranje in obsežnejša zemeljska dela.</p>
-        <div class="status-row"><span class="status-dot available"></span><span data-i18n="equip.5.status">Na voljo — 5 enot</span></div>
-      </div>
-      <div class="equip-card" id="equip-6">
-        <div class="equip-index" data-i18n="equip.6.index">06 / Podpora</div>
-        <h3 data-i18n="equip.6.title">Generatorji in napajanje gradbišča</h3>
-        <p data-i18n="equip.6.desc">Vlečni in stacionarni generatorji, svetlobni stolpi in oprema za distribucijo električne energije na gradbišču.</p>
-        <div class="status-row"><span class="status-dot available"></span><span data-i18n="equip.6.status">Na voljo — 21 enot</span></div>
       </div>
     </div>
   </div>
@@ -474,12 +417,10 @@
         <p class="footer-desc" data-i18n="footer.desc">Oddajanje težke gradbene opreme izvajalcem, ki si ne morejo privoščiti izpadov. Regionalni vozni park, ponudbe še isti dan, poštene cene.</p>
       </div>
       <div class="footer-col">
-        <h5 data-i18n="footer.col1">Vozni park</h5>
+        <h5 data-i18n="footer.col1">Ponudba</h5>
         <ul>
-          <li><a href="#equipment" data-i18n="equip.1.short">Izkopi</a></li>
-          <li><a href="#equipment" data-i18n="equip.2.short">Nakladanje</a></li>
-          <li><a href="#equipment" data-i18n="equip.3.short">Zbijanje</a></li>
-          <li><a href="#equipment" data-i18n="equip.4.short">Dviganje</a></li>
+          <li><a href="najem.html" data-i18n="navmega.rentLabel">Najem</a></li>
+          <li><a href="#service-sales" data-i18n="navmega.salesLabel">Prodaja</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -513,7 +454,7 @@
       "meta.title": "Renting — Oprema in mehanizacija za vsako gradnjo",
       "topbar.hours": "Delovni čas: 7.00–15.00 (sobota 7.00–12.00)",
       "logo.brand": "<span class=\"logo-text-bold\">RENT</span><span class=\"logo-text-regular\">ING</span>",
-      "nav.equipment": "Oprema",
+      "nav.offer": "Ponudba",
       "nav.references": "Reference",
       "nav.partners": "Partnerji",
       "nav.about": "O nas",
@@ -525,44 +466,11 @@
       "hero.newsText": "Preselili smo se: iz Ljubljane - Črnuče v Ljubljano - Zalog.",
       "hero.title": "Oprema in mehanizacija,<br> za <span>vsako</span> gradnjo.",
       "hero.desc": "Renting oddaja bagre, nakladalnike, valjarje in gradbeno opremo izvajalcem po vsej regiji — z jasnim cenikom in opremo, ki deluje takoj, ko prispe.",
-      "hero.ctaSecondary": "Poglejte vozni park",
+      "hero.ctaSecondary": "Poglejte ponudbo najema",
       "stat.1": "Strojev v voznem parku",
       "stat.2": "Od leta",
       "stat.3": "Lokacije",
       "stat.4": "Zanesljivost, transparentnost in predanost",
-      "equip.eyebrow": "Najem opreme",
-      "equip.title": "Zgrajeno za gradbišče, ne za razstavni salon",
-      "equip.sub": "Predogled trenutno razpoložljive opreme. Ko bo ta razdelek povezan z živo zalogo, bo prikazoval stanje v realnem času neposredno iz dvorišča.",
-      "equip.1.index": "01 / Izkopi",
-      "equip.1.title": "Mini in standardni bagri",
-      "equip.1.desc": "Razred 1,5–20 ton, kratki in standardni radiji vrtenja za ozka ali odprta gradbišča.",
-      "equip.1.status": "Na voljo — 12 enot",
-      "equip.1.short": "Izkopi",
-      "equip.2.index": "02 / Nakladanje",
-      "equip.2.title": "Nakladalniki in kompaktni nakladalniki",
-      "equip.2.desc": "Kolesne in gosenične izvedbe z združljivostjo priključkov za planiranje, čiščenje in premikanje materiala.",
-      "equip.2.status": "Omejeno — 3 enote",
-      "equip.2.short": "Nakladanje",
-      "equip.3.index": "03 / Zbijanje",
-      "equip.3.title": "Vibracijske plošče in valjarji",
-      "equip.3.desc": "Od reverzibilnih plošč do sedežnih valjarjev za zbijanje asfalta, zemljine in agregatov.",
-      "equip.3.status": "Na voljo — 9 enot",
-      "equip.3.short": "Zbijanje",
-      "equip.4.index": "04 / Dviganje",
-      "equip.4.title": "Dvižne ploščadi in teleskopski manipulatorji",
-      "equip.4.desc": "Škarjaste in členkaste dvižne ploščadi ter teleskopski manipulatorji za doseg, višino in teren gradbišča.",
-      "equip.4.status": "Zasedeno — naslednje na voljo v četrtek",
-      "equip.4.short": "Dviganje",
-      "equip.5.index": "05 / Zemeljska dela",
-      "equip.5.title": "Buldožerji in grederji",
-      "equip.5.desc": "Srednje veliki buldožerji in cestni grederji za pripravo gradbišča, planiranje in obsežnejša zemeljska dela.",
-      "equip.5.status": "Na voljo — 5 enot",
-      "equip.5.short": "Zemeljska dela",
-      "equip.6.index": "06 / Podpora",
-      "equip.6.title": "Generatorji in napajanje gradbišča",
-      "equip.6.desc": "Vlečni in stacionarni generatorji, svetlobni stolpi in oprema za distribucijo električne energije na gradbišču.",
-      "equip.6.status": "Na voljo — 21 enot",
-      "equip.6.short": "Podpora",
       "navmega.rentLabel": "Najem",
       "navmega.salesLabel": "Prodaja",
       "about.eyebrow": "O nas",
@@ -642,7 +550,7 @@
       "loc.phoneLabel": "Telefon",
       "loc.pending": "V pripravi",
       "footer.desc": "Oddajanje težke gradbene opreme izvajalcem, ki si ne morejo privoščiti izpadov. Regionalni vozni park, ponudbe še isti dan, poštene cene.",
-      "footer.col1": "Najem opreme",
+      "footer.col1": "Ponudba",
       "footer.col2": "Podjetje",
       "footer.col3": "Kontakt",
       "footer.hours": "Pon–Sob, 6.00–18.00",
@@ -653,7 +561,7 @@
       "meta.title": "Renting — Machinery and Equipment for Every Site",
       "topbar.hours": "Working hours: 7.00–15.00 (Saturdays 7.00–12.00)",
       "logo.brand": "<span class=\"logo-text-bold\">RENT</span><span class=\"logo-text-regular\">ING</span>",
-      "nav.equipment": "Equipment",
+      "nav.offer": "Offer",
       "nav.references": "References",
       "nav.partners": "Partners",
       "nav.about": "About Us",
@@ -665,44 +573,11 @@
       "hero.newsText": "We've relocated: from Ljubljana - Črnuče to Ljubljana - Zalog.",
       "hero.title": "Machinery and equipment,<br> for <span>every</span> site.",
       "hero.desc": "Renting rents excavators, loaders, compactors, and site equipment to contractors across the region — with straightforward pricing and equipment that shows up working.",
-      "hero.ctaSecondary": "Browse the Fleet",
+      "hero.ctaSecondary": "Browse the Rental Range",
       "stat.1": "Machines in the fleet",
       "stat.2": "Established",
       "stat.3": "Locations",
       "stat.4": "Reliability, transparency, and dedication",
-      "equip.eyebrow": "Equipment Rental",
-      "equip.title": "Built for the job site, not the showroom",
-      "equip.sub": "A preview of what's available. Once connected to live inventory, this section will reflect real-time status pulled straight from the yard.",
-      "equip.1.index": "01 / Excavation",
-      "equip.1.title": "Mini & Standard Excavators",
-      "equip.1.desc": "1.5–20 ton class, short-swing and standard configurations for tight or open sites.",
-      "equip.1.status": "Available — 12 units",
-      "equip.1.short": "Excavation",
-      "equip.2.index": "02 / Loading",
-      "equip.2.title": "Skid Steers & Loaders",
-      "equip.2.desc": "Wheeled and tracked options with attachment compatibility for grading, clearing, and material handling.",
-      "equip.2.status": "Limited — 3 units",
-      "equip.2.short": "Loading",
-      "equip.3.index": "03 / Compaction",
-      "equip.3.title": "Plate & Roller Compactors",
-      "equip.3.desc": "Reversible plates through ride-on rollers for asphalt, soil, and aggregate compaction.",
-      "equip.3.status": "Available — 9 units",
-      "equip.3.short": "Compaction",
-      "equip.4.index": "04 / Lifting",
-      "equip.4.title": "Aerial & Telehandlers",
-      "equip.4.desc": "Boom lifts, scissor lifts, and telehandlers rated for reach, height, and site terrain.",
-      "equip.4.status": "Booked — next available Thu",
-      "equip.4.short": "Lifting",
-      "equip.5.index": "05 / Earthmoving",
-      "equip.5.title": "Dozers & Graders",
-      "equip.5.desc": "Mid-size dozers and motor graders for site prep, grading, and large-footprint moves.",
-      "equip.5.status": "Available — 5 units",
-      "equip.5.short": "Earthmoving",
-      "equip.6.index": "06 / Support",
-      "equip.6.title": "Generators & Site Power",
-      "equip.6.desc": "Towable and stationary generators, light towers, and site power distribution gear.",
-      "equip.6.status": "Available — 21 units",
-      "equip.6.short": "Support",
       "navmega.rentLabel": "Rent",
       "navmega.salesLabel": "Sales",
       "about.eyebrow": "About Us",
@@ -782,7 +657,7 @@
       "loc.phoneLabel": "Phone",
       "loc.pending": "TBD",
       "footer.desc": "Heavy equipment rental for contractors who can't afford downtime. Regional fleet, same-day quotes, honest pricing.",
-      "footer.col1": "Equipment Rental",
+      "footer.col1": "Offer",
       "footer.col2": "Company",
       "footer.col3": "Contact",
       "footer.hours": "Mon–Sat, 6.00–18.00",
@@ -791,6 +666,8 @@
     }
   };
 </script>
+<script src="js/categories.js"></script>
+<script src="js/catalog.js"></script>
 <script src="js/i18n.js"></script>
 <script src="js/contact-form.js"></script>
 

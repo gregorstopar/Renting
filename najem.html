@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Partnerji — Renting</title>
+<title>Najem — Renting</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -60,7 +60,7 @@
         </div>
       </li>
       <li><a href="reference.html" data-i18n="nav.references">Reference</a></li>
-      <li><a href="partners.html" class="active" data-i18n="nav.partners">Partnerji</a></li>
+      <li><a href="partners.html" data-i18n="nav.partners">Partnerji</a></li>
       <li><a href="index.html#about" data-i18n="nav.about">Kako deluje</a></li>
       <li><a href="index.html#locations" data-i18n="nav.locations">Lokacije</a></li>
       <li><a href="index.html#contact" data-i18n="nav.contact">Kontakt</a></li>
@@ -78,44 +78,15 @@
 
 <div class="page-header">
   <div class="wrap">
-    <div class="section-eyebrow" data-i18n="partners.eyebrow">Partnerji</div>
-    <h1 data-i18n="partnerspage.title">Zanesljivi partnerji za vsak projekt</h1>
-    <p data-i18n="partnerspage.desc">Servis, dobava, varnost in logistika — podjetja, s katerimi sodelujemo, da lahko vsak najem poteka brez zapletov.</p>
+    <div class="section-eyebrow" data-i18n="najem.eyebrow">Najem</div>
+    <h1 data-i18n="najempage.title">Celoten nabor opreme za najem</h1>
+    <p data-i18n="najempage.desc">Prebrskajte vse kategorije in podkategorije naše opreme. Za razpoložljivost, cene in rezervacijo se obrnite na oddelek za najem.</p>
   </div>
 </div>
 
 <section>
   <div class="wrap">
-    <div class="partner-grid">
-      <div class="partner-card" id="partner-1">
-        <div class="partner-card-head">
-          <span class="partner-logo-mark">GRADTECH</span>
-        </div>
-        <div class="partner-card-tag" data-i18n="partner.1.tag">Pooblaščeni servisni partner</div>
-        <p class="partner-card-desc" data-i18n="partner.1.desc">GradTech skrbi za redno vzdrževanje in servis celotne najemne flote Renting — od rednih pregledov do nujnih popravil na terenu. Njihova mobilna servisna ekipa je dosegljiva v roku 24 ur na kateri koli od naših lokacij.</p>
-      </div>
-      <div class="partner-card" id="partner-2">
-        <div class="partner-card-head">
-          <span class="partner-logo-mark">NORDIC MACHINERY</span>
-        </div>
-        <div class="partner-card-tag" data-i18n="partner.2.tag">Dobavitelj mehanizacije</div>
-        <p class="partner-card-desc" data-i18n="partner.2.desc">Nordic Machinery je naš dolgoletni dobavitelj nove gradbene mehanizacije, kar nam omogoča redno posodabljanje flote z zanesljivimi in gorivno učinkovitimi stroji najnovejše generacije.</p>
-      </div>
-      <div class="partner-card" id="partner-3">
-        <div class="partner-card-head">
-          <span class="partner-logo-mark">SAFEWORK SLOVENIJA</span>
-        </div>
-        <div class="partner-card-tag" data-i18n="partner.3.tag">Varnost in usposabljanje</div>
-        <p class="partner-card-desc" data-i18n="partner.3.desc">SafeWork Slovenija izvaja certificirana usposabljanja za upravljavce gradbene mehanizacije in redne varnostne preglede opreme, s čimer skrbimo, da je vsak najem skladen z veljavnimi predpisi.</p>
-      </div>
-      <div class="partner-card" id="partner-4">
-        <div class="partner-card-head">
-          <span class="partner-logo-mark">LOGIPRO TRANSPORT</span>
-        </div>
-        <div class="partner-card-tag" data-i18n="partner.4.tag">Prevoz in logistika</div>
-        <p class="partner-card-desc" data-i18n="partner.4.desc">LogiPro Transport poskrbi za dostavo in prevzem opreme po vsej Sloveniji s specializiranimi nizkoceljnimi prikolicami, kar omogoča hitro dostavo tudi na težje dostopna gradbišča.</p>
-      </div>
-    </div>
+    <div id="najem-categories"></div>
   </div>
 </section>
 
@@ -172,7 +143,7 @@
 <script>
   window.TRANSLATIONS = {
     sl: {
-      "meta.title": "Partnerji — Renting",
+      "meta.title": "Najem — Renting",
       "topbar.hours": "Delovni čas: 7.00–15.00 (sobota 7.00–12.00)",
       "logo.brand": "<span class=\"logo-text-bold\">RENT</span><span class=\"logo-text-regular\">ING</span>",
       "nav.offer": "Ponudba",
@@ -183,17 +154,9 @@
       "nav.locations": "Lokacije",
       "nav.contact": "Kontakt",
       "nav.cta": "Zaprosite za ponudbo",
-      "partners.eyebrow": "Partnerji",
-      "partnerspage.title": "Zanesljivi partnerji za vsak projekt",
-      "partnerspage.desc": "Servis, dobava, varnost in logistika — podjetja, s katerimi sodelujemo, da lahko vsak najem poteka brez zapletov.",
-      "partner.1.tag": "Pooblaščeni servisni partner",
-      "partner.1.desc": "GradTech skrbi za redno vzdrževanje in servis celotne najemne flote Renting — od rednih pregledov do nujnih popravil na terenu. Njihova mobilna servisna ekipa je dosegljiva v roku 24 ur na kateri koli od naših lokacij.",
-      "partner.2.tag": "Dobavitelj mehanizacije",
-      "partner.2.desc": "Nordic Machinery je naš dolgoletni dobavitelj nove gradbene mehanizacije, kar nam omogoča redno posodabljanje flote z zanesljivimi in gorivno učinkovitimi stroji najnovejše generacije.",
-      "partner.3.tag": "Varnost in usposabljanje",
-      "partner.3.desc": "SafeWork Slovenija izvaja certificirana usposabljanja za upravljavce gradbene mehanizacije in redne varnostne preglede opreme, s čimer skrbimo, da je vsak najem skladen z veljavnimi predpisi.",
-      "partner.4.tag": "Prevoz in logistika",
-      "partner.4.desc": "LogiPro Transport poskrbi za dostavo in prevzem opreme po vsej Sloveniji s specializiranimi nizkoceljnimi prikolicami, kar omogoča hitro dostavo tudi na težje dostopna gradbišča.",
+      "najem.eyebrow": "Najem",
+      "najempage.title": "Celoten nabor opreme za najem",
+      "najempage.desc": "Prebrskajte vse kategorije in podkategorije naše opreme. Za razpoložljivost, cene in rezervacijo se obrnite na oddelek za najem.",
       "navmega.rentLabel": "Najem",
       "navmega.salesLabel": "Prodaja",
       "cta.title": "Pravi stroj <span>na gradbišču</span>, pravočasno.",
@@ -209,7 +172,7 @@
       "footer.legal": "Pogoji · Zasebnost · Varnostni listi"
     },
     en: {
-      "meta.title": "Partners — Renting",
+      "meta.title": "Rental — Renting",
       "topbar.hours": "Working hours: 7.00–15.00 (Saturdays 7.00–12.00)",
       "logo.brand": "<span class=\"logo-text-bold\">RENT</span><span class=\"logo-text-regular\">ING</span>",
       "nav.offer": "Offer",
@@ -220,17 +183,9 @@
       "nav.locations": "Locations",
       "nav.contact": "Contact",
       "nav.cta": "Request a Quote",
-      "partners.eyebrow": "Partners",
-      "partnerspage.title": "Reliable partners for every project",
-      "partnerspage.desc": "Service, supply, safety, and logistics — the companies we work with so every rental runs without a hitch.",
-      "partner.1.tag": "Authorized Service Partner",
-      "partner.1.desc": "GradTech handles regular maintenance and servicing for our entire rental fleet — from routine inspections to emergency on-site repairs. Their mobile service team can reach any of our locations within 24 hours.",
-      "partner.2.tag": "Equipment Supplier",
-      "partner.2.desc": "Nordic Machinery is our long-standing supplier of new construction equipment, letting us keep the fleet refreshed with reliable, fuel-efficient machines from the latest generation.",
-      "partner.3.tag": "Safety & Training",
-      "partner.3.desc": "SafeWork Slovenija runs certified training for equipment operators and regular safety inspections, keeping every rental compliant with current regulations.",
-      "partner.4.tag": "Transport & Logistics",
-      "partner.4.desc": "LogiPro Transport delivers and collects equipment across Slovenia using specialized low-loader trailers, enabling fast delivery even to harder-to-reach job sites.",
+      "najem.eyebrow": "Rental",
+      "najempage.title": "The full range of rental equipment",
+      "najempage.desc": "Browse all equipment categories and subcategories. For availability, pricing and booking, get in touch with our rental desk.",
       "navmega.rentLabel": "Rent",
       "navmega.salesLabel": "Sales",
       "cta.title": "Get the right machine <span>on-site</span>, on time.",

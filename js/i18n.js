@@ -19,6 +19,7 @@
     document.querySelectorAll('.lang-btn').forEach(function (btn) {
       btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
     });
+    if (typeof window.renderCatalog === 'function') window.renderCatalog(lang);
     try { localStorage.setItem('renting-lang', lang); } catch (e) {}
   }
 
