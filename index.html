@@ -31,14 +31,23 @@
 <div class="site-top">
 <div class="topbar">
   <div class="wrap topbar-inner">
-    <a href="mailto:info@renting.si" class="topbar-email">info@renting.si</a>
-    <div class="topbar-phones">
-      <a href="tel:+38656632460" class="topbar-phone-primary"><span class="topbar-phone-branch">Koper</span>05/663 24 60</a>
-      <a href="tel:+38615308550" class="topbar-phone-extra"><span class="topbar-phone-branch">Zalog</span>01/530 85 50</a>
-      <a href="tel:+38612801650" class="topbar-phone-extra"><span class="topbar-phone-branch">Rudnik</span>01/280 16 50</a>
-      <a href="tel:+38653304530" class="topbar-phone-extra"><span class="topbar-phone-branch">Vrtojba</span>05/330 45 30</a>
+    <a href="mailto:info@renting.si" class="topbar-item topbar-email">
+      <svg class="topbar-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+      <span class="topbar-stack"><span class="topbar-label" data-i18n="topbar.emailLabel">E-pošta</span><span class="topbar-value">info@renting.si</span></span>
+    </a>
+    <div class="topbar-item topbar-phones-group">
+      <svg class="topbar-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <div class="topbar-phones">
+        <a href="tel:+38656632460" class="topbar-phone"><span class="topbar-label">Koper</span><span class="topbar-value">05/663 24 60</span></a>
+        <a href="tel:+38615308550" class="topbar-phone"><span class="topbar-label">Zalog</span><span class="topbar-value">01/530 85 50</span></a>
+        <a href="tel:+38612801650" class="topbar-phone"><span class="topbar-label">Rudnik</span><span class="topbar-value">01/280 16 50</span></a>
+        <a href="tel:+38653304530" class="topbar-phone"><span class="topbar-label">Vrtojba</span><span class="topbar-value">05/330 45 30</span></a>
+      </div>
     </div>
-    <span class="topbar-hours" data-i18n="topbar.hours">Delovni čas: 7.00–15.00 (sobota 7.00–12.00)</span>
+    <div class="topbar-item topbar-hours">
+      <svg class="topbar-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+      <span class="topbar-stack"><span class="topbar-label" data-i18n="topbar.hoursLabel">Delovni čas</span><span class="topbar-value" data-i18n="topbar.hoursValue">7.00–15.00 (sobota 7.00–12.00)</span></span>
+    </div>
   </div>
 </div>
 
@@ -111,14 +120,19 @@
 </div>
 
 <section id="about">
-  <div class="wrap">
-    <div class="section-eyebrow" data-i18n="about.eyebrow">O nas</div>
-    <h2 class="section-title" data-i18n="about.title">Vaš zanesljiv partner od leta 1992</h2>
+  <div class="wrap about-layout">
+    <div class="about-text">
+      <div class="section-eyebrow" data-i18n="about.eyebrow">O nas</div>
+      <h2 class="section-title" data-i18n="about.title">Vaš zanesljiv partner od leta 1992</h2>
 
-    <div class="about-copy">
-      <p data-i18n="about.p1">Skupina Renting svojim strankam že od leta 1992 predstavlja zanesljivega partnerja pri najemu, prodaji in servisu gradbene opreme in mehanizacije.</p>
-      <p data-i18n="about.p2">Razširjena mreža partnerjev nam omogoča zagotavljanje ponudb za najem in prodajo vseh tipov gradbene mehanizacije in opreme. Tako vam lahko poleg opreme v lastnem portfelju pripravimo tudi ponudbo za najem ostale opreme.</p>
-      <p data-i18n="about.p3">Poleg najema, prodaje in servisa, nudimo tudi določene storitvene dejavnosti, inženirska in izvedbena dela, v povezavi z določenimi tipi opreme in mehanizacije.</p>
+      <div class="about-copy">
+        <p data-i18n="about.p1">Skupina Renting svojim strankam že od leta 1992 predstavlja zanesljivega partnerja pri najemu, prodaji in servisu gradbene opreme in mehanizacije.</p>
+        <p data-i18n="about.p2">Razširjena mreža partnerjev nam omogoča zagotavljanje ponudb za najem in prodajo vseh tipov gradbene mehanizacije in opreme. Tako vam lahko poleg opreme v lastnem portfelju pripravimo tudi ponudbo za najem ostale opreme.</p>
+        <p data-i18n="about.p3">Poleg najema, prodaje in servisa, nudimo tudi določene storitvene dejavnosti, inženirska in izvedbena dela, v povezavi z določenimi tipi opreme in mehanizacije.</p>
+      </div>
+    </div>
+    <div class="about-logo">
+      <img src="images/renting-logo.svg" alt="Skupina Renting — since 1992" width="257" height="195">
     </div>
   </div>
 </section>
@@ -380,14 +394,14 @@
         <h3>Ljubljana - Zalog</h3>
         <div class="location-detail">
           <span class="location-label" data-i18n="loc.addressLabel">Naslov</span>
-          <span data-i18n="loc.pending">V pripravi</span>
+          Hladilniška pot 50, Ljubljana-Zalog
         </div>
         <div class="location-detail">
           <span class="location-label" data-i18n="loc.phoneLabel">Telefon</span>
           <a href="tel:+38615308550">01/530 85 50</a>
         </div>
         <div class="location-map">
-          <iframe src="https://www.google.com/maps?q=Zalog%2C%20Ljubljana%2C%20Slovenija&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Zemljevid — Ljubljana - Zalog"></iframe>
+          <iframe src="https://www.google.com/maps?q=Hladilni%C5%A1ka%20pot%2050%2C%20Ljubljana-Zalog%2C%20Slovenija&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Zemljevid — Ljubljana - Zalog"></iframe>
         </div>
       </div>
       <div class="location-card">
@@ -465,7 +479,9 @@
   window.TRANSLATIONS = {
     sl: {
       "meta.title": "Renting — Oprema in mehanizacija za vsako gradnjo",
-      "topbar.hours": "Delovni čas: 7.00–15.00 (sobota 7.00–12.00)",
+      "topbar.emailLabel": "E-pošta",
+      "topbar.hoursLabel": "Delovni čas",
+      "topbar.hoursValue": "7.00–15.00 (sobota 7.00–12.00)",
       "logo.brand": "<span class=\"logo-text-bold\">RENT</span><span class=\"logo-text-regular\">ING</span>",
       "nav.offer": "Ponudba",
       "nav.references": "Reference",
@@ -564,7 +580,6 @@
       "loc.hoursValue": "7.00–15.00 (sobota 7.00–12.00)",
       "loc.addressLabel": "Naslov",
       "loc.phoneLabel": "Telefon",
-      "loc.pending": "V pripravi",
       "footer.desc": "Oddajanje težke gradbene opreme izvajalcem, ki si ne morejo privoščiti izpadov. Regionalni vozni park, ponudbe še isti dan, poštene cene.",
       "footer.col1": "Ponudba",
       "footer.col2": "Podjetje",
@@ -575,7 +590,9 @@
     },
     en: {
       "meta.title": "Renting — Machinery and Equipment for Every Site",
-      "topbar.hours": "Working hours: 7.00–15.00 (Saturdays 7.00–12.00)",
+      "topbar.emailLabel": "Email",
+      "topbar.hoursLabel": "Working hours",
+      "topbar.hoursValue": "7.00–15.00 (Saturdays 7.00–12.00)",
       "logo.brand": "<span class=\"logo-text-bold\">RENT</span><span class=\"logo-text-regular\">ING</span>",
       "nav.offer": "Offer",
       "nav.references": "References",
@@ -674,7 +691,6 @@
       "loc.hoursValue": "7.00–15.00 (Saturdays 7.00–12.00)",
       "loc.addressLabel": "Address",
       "loc.phoneLabel": "Phone",
-      "loc.pending": "TBD",
       "footer.desc": "Heavy equipment rental for contractors who can't afford downtime. Regional fleet, same-day quotes, honest pricing.",
       "footer.col1": "Offer",
       "footer.col2": "Company",
