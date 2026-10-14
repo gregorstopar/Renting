@@ -1,0 +1,153 @@
+#!/usr/bin/env python3
+"""Build js/equipment.js from the equipment Excel export.
+
+Usage:
+    python3 tools/build_equipment.py path/to/Equipment.xlsx
+
+Reads the "Oprema" sheet and writes js/equipment.js (window.EQUIPMENT),
+which najem.html uses to list equipment under each category/subcategory.
+Re-run it whenever the Excel export changes. Requires openpyxl
+(pip install openpyxl).
+
+Columns used:
+    CODE              equipment id
+    Category code     4 digits = category (2) + subcategory (2);
+                      2 digits = category only (no subcategory)
+    category          sub-subcategory, used to group items
+    Category level 2  subcategory name; when "category" only repeats it,
+                      the item is left ungrouped
+    proizvajalec      manufacturer
+    naziv             model / description
+    treeID            hierarchical id, used for ordering
+    deleted           rows marked deleted are skipped
+
+Rows whose code is not in js/categories.js are skipped and reported.
+Rows that would display identically (same code, group, manufacturer and
+naziv) are merged into one entry that keeps all their ids.
+"""
+import argparse
+import collections
+import json
+import re
+import sys
+from pathlib import Path
+
+import openpyxl
+
+REPO = Path(__file__).resolve().parent.parent
+VARIOUS = {'razni', 'različni', 'razno'}
+
+
+def clean(value):
+    text = str(value if value is not None else '').replace('_x000D_', ' ')
+    return re.sub(r'\s+', ' ', text).strip()
+
+
+def natural_key(text):
+    return [int(part) if part.isdigit() else part.lower()
+            for part in re.split(r'(\d+)', text)]
+
+
+def normalize_code(value):
+    code = clean(value)
+    return code.zfill(2) if len(code) <= 2 else code.zfill(4)
+
+
+def normalize_tree_id(value, code):
+    tree = clean(value)
+    if not tree.startswith(code) and ('0' + tree).startswith(code):
+        tree = '0' + tree  # Excel stored it as a number and dropped the leading zero
+    return tree
+
+
+def load_site_codes():
+    js = (REPO / 'js' / 'categories.js').read_text(encoding='utf-8')
+    categories = json.loads(js[js.index('['):js.rindex(']') + 1])
+    codes = set()
+    for cat in categories:
+        codes.add(cat['code'])
+        codes.update(sub['code'] for sub in cat['subcategories'])
+    return codes
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__.split('\n\n')[0])
+    parser.add_argument('xlsx', help='equipment Excel export (sheet "Oprema")')
+    parser.add_argument('--out', default=str(REPO / 'js' / 'equipment.js'))
+    args = parser.parse_args()
+
+    sheet = openpyxl.load_workbook(args.xlsx, read_only=True, data_only=True)['Oprema']
+    rows = list(sheet.iter_rows(values_only=True))
+    col = {name: i for i, name in enumerate(rows[0])}
+    site_codes = load_site_codes()
+
+    items, skipped_deleted, skipped_codes = [], 0, collections.Counter()
+    for row in rows[1:]:
+        if row[col['deleted']]:
+            skipped_deleted += 1
+            continue
+        code = normalize_code(row[col['Category code']])
+        if code not in site_codes:
+            skipped_codes[code] += 1
+            continue
+        group = clean(row[col['category']])
+        if group.lower() == clean(row[col['Category level 2']]).lower():
+            group = None
+        manufacturer = clean(row[col['proizvajalec']])
+        if manufacturer.lower() in VARIOUS:
+            manufacturer = 'Različni'
+        items.append({
+            'id': row[col['CODE']],
+            'code': code,
+            'group': group,
+            'manufacturer': manufacturer,
+            'name': clean(row[col['naziv']]),
+            'tree': normalize_tree_id(row[col['treeID']], code),
+        })
+
+    # Groups appear in treeID order (e.g. power ranges ascending); ungrouped items first.
+    group_order = {}
+    for item in items:
+        key = (item['code'], item['group'])
+        group_order[key] = min(group_order.get(key, item['tree']), item['tree'])
+    items.sort(key=lambda it: (it['code'],
+                               '' if it['group'] is None else group_order[(it['code'], it['group'])],
+                               it['group'] or '',
+                               it['tree'],
+                               natural_key(it['manufacturer']),
+                               natural_key(it['name'])))
+
+    merged, by_display = [], {}
+    for item in items:
+        key = (item['code'], item['group'], item['manufacturer'].lower(), item['name'].lower())
+        if key in by_display:
+            by_display[key][0].append(item['id'])
+            continue
+        entry = [[item['id']], item['code'], item['group'], item['manufacturer'], item['name']]
+        by_display[key] = entry
+        merged.append(entry)
+
+    lines = [json.dumps(entry, ensure_ascii=False, separators=(',', ':')) for entry in merged]
+    Path(args.out).write_text(
+        '// Rental equipment list — generated by tools/build_equipment.py from the\n'
+        '// equipment Excel export. Do not edit by hand; re-run the script instead.\n'
+        '// Row: [ids, code, group, manufacturer, name]\n'
+        '//   ids   — equipment CODEs (several when identical-looking rows were merged)\n'
+        '//   code  — 4-digit subcategory code, or 2-digit category code if no subcategory\n'
+        '//   group — sub-subcategory ("category" column); null when it repeats the subcategory\n'
+        'window.EQUIPMENT = [\n' + ',\n'.join(lines) + '\n];\n',
+        encoding='utf-8')
+
+    per_category = collections.Counter(entry[1][:2] for entry in merged)
+    print(f'source rows:            {len(rows) - 1}')
+    print(f'skipped (deleted):      {skipped_deleted}')
+    print(f'skipped (code not on site): {sum(skipped_codes.values())} {dict(skipped_codes)}')
+    print(f'listed items:           {len(items)}')
+    print(f'merged look-alikes:     {len(items) - len(merged)}')
+    print(f'entries written:        {len(merged)} -> {args.out}')
+    print('entries per category:   ' + ', '.join(f'{k}:{v}' for k, v in sorted(per_category.items())))
+    return 0
+
+
+if __name__ == '__main__':
+    sys.exit(main())

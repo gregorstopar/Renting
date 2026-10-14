@@ -118,7 +118,7 @@ header{
   background:var(--steel-900);
   border-bottom:1px solid rgba(255,255,255,0.08);
 }
-nav{
+header nav{
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -595,40 +595,158 @@ section{padding:96px 0;}
 }
 .cat-card-more::before{display:none;}
 
-/* ---------- Najem catalog page (subcategory detail view) ---------- */
-.najem-back{
-  display:inline-block;
+/* ---------- Najem catalog page (category / subcategory view) ---------- */
+.najem-catalog{padding-top:48px;}
+.najem-crumbs{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px 10px;
   font-family:var(--font-mono);
   font-size:13px;
+  color:var(--steel-900);
+  margin-bottom:20px;
+}
+.najem-crumbs a{
   color:var(--steel-700);
-  margin-bottom:28px;
+  text-decoration:underline;
+  text-decoration-color:rgba(52,58,65,0.35);
+  text-underline-offset:3px;
   transition:color 0.2s ease;
 }
-.najem-back:hover{color:var(--amber-600);}
+.najem-crumbs a:hover{color:var(--amber-600);}
+.najem-crumb-sep{color:var(--concrete-500);}
+.najem-head{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:8px 24px;
+  margin-bottom:24px;
+}
 .category-title{
   font-family:var(--font-display);
   font-size:26px;
   font-weight:600;
   text-transform:uppercase;
-  margin-bottom:24px;
+}
+.najem-meta{
+  font-family:var(--font-mono);
+  font-size:13px;
+  color:var(--steel-700);
 }
 .subcategory-grid{
   display:grid;
   grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
   gap:12px;
+  margin-bottom:56px;
 }
 .subcategory-chip{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
   background:var(--paper-100);
   border:1px solid rgba(0,0,0,0.1);
   border-radius:2px;
-  padding:16px 18px;
+  padding:14px 18px;
   font-size:14px;
   color:var(--steel-700);
-  scroll-margin-top:110px;
   transition:border-color 0.2s ease, background 0.2s ease;
 }
 .subcategory-chip:hover{border-color:var(--amber-500);background:#f4f4f4;}
-.subcategory-chip.active{border-color:var(--amber-500);background:#fdf3e0;}
+.subcategory-chip.active{border-color:var(--amber-500);background:#fdf3e0;color:var(--steel-900);font-weight:600;}
+.subcategory-chip.is-empty{border-style:dashed;color:var(--concrete-500);}
+.chip-count{
+  font-family:var(--font-mono);
+  font-size:12px;
+  font-weight:500;
+  color:var(--concrete-500);
+  font-variant-numeric:tabular-nums;
+}
+.subcategory-chip.active .chip-count{color:var(--steel-900);}
+
+/* Equipment listing */
+.equip-sections{
+  display:flex;
+  flex-direction:column;
+  gap:56px;
+}
+.equip-section{padding:0;}
+.equip-section-title{
+  display:flex;
+  align-items:baseline;
+  gap:12px;
+  font-family:var(--font-display);
+  font-size:21px;
+  font-weight:600;
+  text-transform:uppercase;
+  margin-bottom:14px;
+  text-wrap:balance;
+}
+.equip-section-title a{transition:color 0.2s ease;}
+.equip-section-title a:hover{color:var(--amber-600);}
+.equip-count{
+  font-family:var(--font-mono);
+  font-size:13px;
+  font-weight:500;
+  color:var(--steel-700);
+}
+.equip-table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:14.5px;
+}
+.equip-table thead th{
+  text-align:left;
+  font-family:var(--font-mono);
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--steel-700);
+  padding:0 16px 10px;
+  border-bottom:2px solid var(--steel-900);
+}
+.equip-table td{
+  padding:10px 16px;
+  border-bottom:1px solid rgba(0,0,0,0.08);
+  vertical-align:top;
+}
+.equip-table tbody tr:not(.equip-group-row):hover td{background:#fafaf8;}
+.equip-manufacturer{width:34%;color:var(--steel-700);}
+.equip-name{color:var(--steel-900);font-weight:500;}
+.equip-group-row th{
+  text-align:left;
+  background:#f4f3f0;
+  border-left:3px solid var(--amber-500);
+  border-bottom:1px solid rgba(0,0,0,0.08);
+  padding:9px 16px 9px 13px;
+  font-size:13.5px;
+  font-weight:600;
+  color:var(--steel-900);
+}
+.equip-group-count{
+  margin-left:10px;
+  font-family:var(--font-mono);
+  font-size:12px;
+  font-weight:500;
+  color:var(--steel-700);
+}
+.equip-empty{
+  border:1px dashed rgba(0,0,0,0.18);
+  border-radius:2px;
+  padding:24px 28px;
+  color:var(--steel-700);
+  max-width:720px;
+}
+.equip-empty a{
+  display:inline-block;
+  margin-top:12px;
+  font-weight:600;
+  color:var(--steel-900);
+  border-bottom:2px solid var(--amber-500);
+}
+.equip-empty a:hover{color:var(--amber-600);}
 
 /* ---------- About us ---------- */
 .about-layout{
@@ -1201,6 +1319,12 @@ footer{
   .topbar-phone:last-child{padding:0 12px;border-left:0;text-align:center;}
   .topbar-phone:nth-child(even){border-left:1px solid rgba(21,24,27,0.25);}
   .topbar-value{font-size:14px;}
+  .equip-table thead{display:none;}
+  .equip-table tr{display:block;border-bottom:1px solid rgba(0,0,0,0.08);padding:10px 12px;}
+  .equip-table td{display:block;border:0;padding:0;width:auto;}
+  .equip-manufacturer{font-size:12.5px;margin-bottom:2px;}
+  .equip-table tr.equip-group-row{padding:0;border:0;}
+  .equip-group-row th{display:block;}
   .partner-strip{grid-template-columns:1fr;}
 }
 
