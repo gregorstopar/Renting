@@ -14,7 +14,9 @@
       name: 'Naziv',
       other: 'Ostala oprema',
       empty: 'V tej podkategoriji trenutno ni objavljene opreme. Pokličite nas — prek mreže partnerjev jo pogosto vseeno priskrbimo.',
-      ask: 'Pošljite povpraševanje →'
+      ask: 'Pošljite povpraševanje →',
+      expandAll: 'Razširi vse',
+      collapseAll: 'Skrči vse'
     },
     en: {
       hint: 'Hover a category to see its subcategories',
@@ -27,7 +29,9 @@
       name: 'Model',
       other: 'Other equipment',
       empty: 'No equipment is listed in this subcategory yet. Get in touch — through our partner network we can often still source it.',
-      ask: 'Send an enquiry →'
+      ask: 'Send an enquiry →',
+      expandAll: 'Expand all',
+      collapseAll: 'Collapse all'
     }
   };
   function t(lang, key) { return (STRINGS[lang] || STRINGS.sl)[key]; }
@@ -190,7 +194,17 @@
     return a;
   }
 
-  function buildEquipTable(items, lang) {
+  // Groups start collapsed; ones the visitor opens stay open across re-renders (e.g. a language switch).
+  var openGroups = {};
+
+  function setGroupOpen(tbody, open) {
+    tbody.classList.toggle('is-collapsed', !open);
+    tbody.querySelector('.equip-group-toggle').setAttribute('aria-expanded', String(open));
+    if (open) openGroups[tbody.dataset.key] = true;
+    else delete openGroups[tbody.dataset.key];
+  }
+
+  function buildEquipTable(items, lang, code) {
     var table = el('table', 'equip-table');
     var headRow = table.createTHead().insertRow();
     [t(lang, 'manufacturer'), t(lang, 'name')].forEach(function (label) {
@@ -210,11 +224,22 @@
     order.forEach(function (key) {
       var tbody = document.createElement('tbody');
       if (key) {
+        tbody.className = 'equip-group';
+        tbody.dataset.key = code + '|' + key;
+        var toggle = el('button', 'equip-group-toggle');
+        toggle.type = 'button';
+        var chevron = el('span', 'equip-group-chevron');
+        chevron.setAttribute('aria-hidden', 'true');
+        toggle.appendChild(chevron);
+        toggle.appendChild(el('span', 'equip-group-label', key));
+        toggle.appendChild(el('span', 'equip-group-count', String(byGroup[key].length)));
+        toggle.addEventListener('click', function () {
+          setGroupOpen(tbody, tbody.classList.contains('is-collapsed'));
+        });
         var th = el('th');
         th.colSpan = 2;
         th.scope = 'rowgroup';
-        th.appendChild(el('span', null, key));
-        th.appendChild(el('span', 'equip-group-count', String(byGroup[key].length)));
+        th.appendChild(toggle);
         var groupRow = tbody.insertRow();
         groupRow.className = 'equip-group-row';
         groupRow.appendChild(th);
@@ -224,12 +249,13 @@
         tr.appendChild(el('td', 'equip-manufacturer', item.manufacturer || '—'));
         tr.appendChild(el('td', 'equip-name', item.name));
       });
+      if (key) setGroupOpen(tbody, !!openGroups[tbody.dataset.key]);
       table.appendChild(tbody);
     });
     return table;
   }
 
-  function buildEquipSection(title, href, items, lang) {
+  function buildEquipSection(title, href, items, lang, code) {
     var section = el('section', 'equip-section');
     var h3 = el('h3', 'equip-section-title');
     if (href) {
@@ -243,7 +269,7 @@
     section.appendChild(h3);
 
     if (items.length) {
-      section.appendChild(buildEquipTable(items, lang));
+      section.appendChild(buildEquipTable(items, lang, code));
     } else {
       var empty = el('div', 'equip-empty');
       empty.appendChild(el('p', null, t(lang, 'empty')));
@@ -275,17 +301,42 @@
 
     var sections = el('div', 'equip-sections');
     if (sub) {
-      sections.appendChild(buildEquipSection(subName(sub, lang), null, itemsFor(sub.code), lang));
+      sections.appendChild(buildEquipSection(subName(sub, lang), null, itemsFor(sub.code), lang, sub.code));
     } else {
       cat.subcategories.forEach(function (s) {
         var items = itemsFor(s.code);
-        if (items.length) sections.appendChild(buildEquipSection(subName(s, lang), '#sub-' + s.code, items, lang));
+        if (items.length) sections.appendChild(buildEquipSection(subName(s, lang), '#sub-' + s.code, items, lang, s.code));
       });
       var other = itemsFor(cat.code);
-      if (other.length) sections.appendChild(buildEquipSection(t(lang, 'other'), null, other, lang));
-      if (!sections.children.length) sections.appendChild(buildEquipSection(catName(cat, lang), null, [], lang));
+      if (other.length) sections.appendChild(buildEquipSection(t(lang, 'other'), null, other, lang, cat.code));
+      if (!sections.children.length) sections.appendChild(buildEquipSection(catName(cat, lang), null, [], lang, cat.code));
     }
+
+    var groups = sections.querySelectorAll('tbody.equip-group');
+    if (groups.length) container.appendChild(buildToggleAll(groups, sections, lang));
     container.appendChild(sections);
+  }
+
+  function buildToggleAll(groups, sections, lang) {
+    var bar = el('div', 'equip-toolbar');
+    var button = el('button', 'equip-toggle-all');
+    button.type = 'button';
+    function allOpen() {
+      return Array.prototype.every.call(groups, function (g) { return !g.classList.contains('is-collapsed'); });
+    }
+    function sync() { button.textContent = t(lang, allOpen() ? 'collapseAll' : 'expandAll'); }
+    button.addEventListener('click', function () {
+      var open = !allOpen();
+      Array.prototype.forEach.call(groups, function (g) { setGroupOpen(g, open); });
+      sync();
+    });
+    // Individual group toggles bubble up here, keeping the label in step.
+    sections.addEventListener('click', function (e) {
+      if (e.target.closest('.equip-group-toggle')) sync();
+    });
+    sync();
+    bar.appendChild(button);
+    return bar;
   }
 
   // After switching views, bring the top of the catalog back into view if the user had scrolled past it.
