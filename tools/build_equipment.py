@@ -14,6 +14,8 @@ Columns used:
     Category code     4 digits = category (2) + subcategory (2);
                       2 digits = category only (no subcategory)
     category          sub-subcategory, used to group items
+    vrsta             equipment type, used to group items instead of
+                      "category" in the subcategories listed in GROUP_BY_VRSTA
     Category level 2  subcategory name; when "category" only repeats it,
                       the item is left ungrouped
     proizvajalec      manufacturer
@@ -36,6 +38,9 @@ import openpyxl
 
 REPO = Path(__file__).resolve().parent.parent
 VARIOUS = {'razni', 'različni', 'razno'}
+# Subcategories grouped by "vrsta" instead of "category" — where "category"
+# holds individual element sizes and would split the list into tiny groups.
+GROUP_BY_VRSTA = {'1004'}  # Sistemski opaži
 
 
 def clean(value):
@@ -90,7 +95,11 @@ def main():
         if code not in site_codes:
             skipped_codes[code] += 1
             continue
-        group = clean(row[col['category']])
+        if code in GROUP_BY_VRSTA:
+            group = clean(row[col['vrsta']])
+            group = group[:1].upper() + group[1:]
+        else:
+            group = clean(row[col['category']])
         if group.lower() == clean(row[col['Category level 2']]).lower():
             group = None
         manufacturer = clean(row[col['proizvajalec']])
