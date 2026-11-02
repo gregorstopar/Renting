@@ -993,6 +993,7 @@ section{padding:96px 0;}
   padding-bottom:72px;
   border-bottom:1px solid rgba(0,0,0,0.08);
 }
+.ref-case + .ref-case{padding-top:72px;}
 .ref-case + .ref-grid{margin-top:72px;}
 .ref-case-head{margin-bottom:32px;}
 .ref-case-title{
@@ -1076,6 +1077,9 @@ section{padding:96px 0;}
   aspect-ratio:3/4;
 }
 .ref-gallery a:first-child{grid-column:1 / -1;aspect-ratio:20/9;}
+/* Galleries of portrait photos only: side by side, uncropped 3:4 */
+.ref-gallery.is-portrait{grid-template-columns:repeat(2,1fr);}
+.ref-gallery.is-portrait a:first-child{grid-column:auto;aspect-ratio:3/4;}
 .ref-gallery img{
   width:100%;
   height:100%;
