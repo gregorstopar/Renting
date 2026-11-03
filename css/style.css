@@ -893,32 +893,6 @@ section{padding:96px 0;}
   aspect-ratio:16/10;
   overflow:hidden;
   background-color:var(--steel-900);
-  background-image:
-    radial-gradient(circle at 20% 20%, rgba(255,255,255,0.05) 0, rgba(255,255,255,0.05) 1px, transparent 1px),
-    radial-gradient(circle at 70% 65%, rgba(255,255,255,0.04) 0, rgba(255,255,255,0.04) 1px, transparent 1px),
-    linear-gradient(135deg, var(--steel-800) 0%, var(--steel-900) 60%);
-  background-size:26px 26px, 26px 26px, cover;
-}
-.ref-photo .logo-mark{
-  position:absolute;
-  top:50%;left:50%;
-  width:120px;height:74px;
-  transform:translate(-50%,-50%);
-  opacity:0.14;
-}
-.ref-photo.has-photo{
-  background-image:
-    radial-gradient(ellipse at center, rgba(0,0,0,0.1) 35%, rgba(0,0,0,0.85) 100%),
-    url('../images/renting.jpg');
-  background-size:cover;
-  background-position:center;
-  filter:grayscale(100%);
-  transition:filter 0.5s ease;
-}
-.ref-photo.has-photo .logo-mark{display:none;}
-.ref-card:hover .ref-photo.has-photo,
-.ref-card:focus-visible .ref-photo.has-photo{
-  filter:grayscale(0%);
 }
 .ref-photo-tag{
   position:absolute;
@@ -930,14 +904,6 @@ section{padding:96px 0;}
   letter-spacing:0.03em;
   padding:6px 11px;
   border-radius:2px;
-}
-.ref-photo-year{
-  position:absolute;
-  right:14px;top:14px;
-  color:var(--amber-500);
-  font-family:var(--font-mono);
-  font-size:11.5px;
-  letter-spacing:0.05em;
 }
 .ref-body{
   padding:26px 28px 30px;
@@ -982,8 +948,7 @@ section{padding:96px 0;}
   background:radial-gradient(ellipse at center, rgba(0,0,0,0.1) 35%, rgba(0,0,0,0.85) 100%);
   pointer-events:none;
 }
-.ref-photo.has-img .ref-photo-tag,
-.ref-photo.has-img .ref-photo-year{z-index:1;}
+.ref-photo.has-img .ref-photo-tag{z-index:1;}
 .ref-card:hover .ref-photo-img,
 .ref-card:focus-visible .ref-photo-img{filter:grayscale(0%);}
 
@@ -994,7 +959,7 @@ section{padding:96px 0;}
   border-bottom:1px solid rgba(0,0,0,0.08);
 }
 .ref-case + .ref-case{padding-top:72px;}
-.ref-case + .ref-grid{margin-top:72px;}
+.ref-case:last-child{padding-bottom:0;border-bottom:0;}
 .ref-case-head{margin-bottom:32px;}
 .ref-case-title{
   font-family:var(--font-display);
@@ -1048,11 +1013,13 @@ section{padding:96px 0;}
   border-bottom:1px solid rgba(0,0,0,0.08);
   font-size:14.5px;
 }
-.ref-specs dt{color:var(--steel-700);}
+.ref-specs dt{color:var(--steel-700);flex:0 1 auto;}
 .ref-specs dd{
   font-weight:600;
   text-align:right;
-  white-space:nowrap;
+  flex:0 1 auto;
+  max-width:60%;
+  text-wrap:balance;
   font-variant-numeric:tabular-nums;
 }
 .ref-case-link{
@@ -1080,6 +1047,9 @@ section{padding:96px 0;}
 /* Galleries of portrait photos only: side by side, uncropped 3:4 */
 .ref-gallery.is-portrait{grid-template-columns:repeat(2,1fr);}
 .ref-gallery.is-portrait a:first-child{grid-column:auto;aspect-ratio:3/4;}
+/* Galleries of wide photos only: lead photo full width, the rest in pairs, uncropped 20:9 */
+.ref-gallery.is-landscape{grid-template-columns:repeat(2,1fr);}
+.ref-gallery.is-landscape a{aspect-ratio:20/9;}
 .ref-gallery img{
   width:100%;
   height:100%;
