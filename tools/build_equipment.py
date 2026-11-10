@@ -41,9 +41,12 @@ VARIOUS = {'razni', 'različni', 'razno'}
 # Subcategories grouped by "vrsta" (the system) instead of "category" — where
 # "category" holds individual elements and would split the list into tiny groups.
 GROUP_BY_VRSTA = {
+    '0902',  # Transportne lestve
     '1004',  # Sistemski opaži
     '1104',  # Hitromontažni "H" odri
     '1105',  # Modulni odri
+    '1407',  # Gradbiščne in varovalne ograje
+    '1501',  # Oprema za barvanje
 }
 
 
