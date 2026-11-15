@@ -54,7 +54,7 @@
 <header>
   <nav>
     <a href="index.html" class="logo"><svg class="logo-mark" aria-hidden="true"><use href="#renting-mark"></use></svg><span data-i18n-html="logo.brand"><span class="logo-text-bold">RENT</span><span class="logo-text-regular">ING</span></span></a>
-    <ul class="nav-links">
+    <ul class="nav-links" id="site-menu">
       <li class="nav-dropdown">
         <a href="najem.html" class="nav-dropdown-trigger" data-i18n="nav.offer">Ponudba<span class="nav-caret" aria-hidden="true"></span></a>
         <div class="nav-mega nav-mega-catalog">
@@ -73,6 +73,7 @@
       <li><a href="index.html#about" data-i18n="nav.about">Kako deluje</a></li>
       <li><a href="index.html#locations" data-i18n="nav.locations">Lokacije</a></li>
       <li><a href="index.html#contact" data-i18n="nav.contact">Kontakt</a></li>
+      <li class="nav-menu-cta"><a href="index.html#contact" data-i18n="nav.cta">Zaprosite za ponudbo</a></li>
     </ul>
     <div class="nav-right">
       <div class="lang-switch">
@@ -80,6 +81,7 @@
         <button type="button" class="lang-btn" data-lang="en">EN</button>
       </div>
       <a href="index.html#contact" class="nav-cta" data-i18n="nav.cta">Zaprosite za ponudbo</a>
+      <button type="button" class="nav-toggle" aria-controls="site-menu" aria-expanded="false" aria-label="Meni"><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span></button>
     </div>
   </nav>
 </header>
@@ -262,6 +264,7 @@
 </script>
 <script src="js/categories.js"></script>
 <script src="js/catalog.js"></script>
+<script src="js/nav.js"></script>
 <script src="js/i18n.js"></script>
 
 </body>
